@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - FieldCell
   - FIeldCell
   layers:
   - Default
@@ -14,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - FieldCell
+  - Stone
   - 
   - 
   - 
@@ -41,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FieldCells
+    uniqueID: 2940720075
+    locked: 0
+  - name: Stone
+    uniqueID: 4016111805
     locked: 0

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class AutoAllocator : MonoBehaviour
@@ -12,6 +11,7 @@ public class AutoAllocator : MonoBehaviour
     GameObject[] spawnPoints;
     Bounds spawnPointBounds;
     public static int currentPointsAmmountOnTheField;
+    GameObject[] collisonObjects;
 
     #region Other Collisions
     Bounds rock1ColliderBounds, rock2ColliderBounds, rock3ColliderBounds, tree1ColliderBounds;
@@ -23,16 +23,18 @@ public class AutoAllocator : MonoBehaviour
         OnAutoLocateClick();
 
         #region Сollision assigner
-        tree1 = GameObject.Find("TreeTrunk");
-        rock1 = GameObject.Find("Cube (7)");
-        rock2 = GameObject.Find("Cube (8)");
-        rock3 = GameObject.Find("Cube (5)");
+        // tree1 = GameObject.Find("TreeTrunk");
+        // rock1 = GameObject.Find("Cube (7)");
+        // rock2 = GameObject.Find("Cube (8)");
+        // rock3 = GameObject.Find("Cube (5)");
 
-        rock1ColliderBounds = rock1.GetComponent<BoxCollider>().bounds;
-        rock2ColliderBounds = rock2.GetComponent<BoxCollider>().bounds;
-        rock3ColliderBounds = rock3.GetComponent<BoxCollider>().bounds;
-        tree1ColliderBounds = tree1.GetComponent<BoxCollider>().bounds;
+        // rock1ColliderBounds = rock1.GetComponent<BoxCollider>().bounds;
+        // rock2ColliderBounds = rock2.GetComponent<BoxCollider>().bounds;
+        // rock3ColliderBounds = rock3.GetComponent<BoxCollider>().bounds;
+        // tree1ColliderBounds = tree1.GetComponent<BoxCollider>().bounds;
         #endregion
+
+        
     }
 
     private void Update(){
@@ -40,26 +42,34 @@ public class AutoAllocator : MonoBehaviour
         {
             spawnAreas.Clear();
             spawnAreas.Add(new Bounds(new Vector3(0, 0, 0), new Vector3(Width(), 0, Height())));
-
             
             spawnAdditionalSpawnPoints();
             currentPointsAmmountOnTheField += 2;
-            
         }
     }
 
     void CollisionCounter(){
-        spawnPointBounds = new Bounds(rock1ColliderBounds.center, rock1ColliderBounds.size);//collider.bounds;
-        MarkupSpawnAreas(spawnPointBounds.center);
+        #region in case if something will go wrong with an array
+        // spawnPointBounds = new Bounds(rock1ColliderBounds.center, rock1ColliderBounds.size);//collider.bounds;
+        // MarkupSpawnAreas(spawnPointBounds.center);
 
-        spawnPointBounds = new Bounds(rock2ColliderBounds.center, rock2ColliderBounds.size);//collider.bounds;
-        MarkupSpawnAreas(spawnPointBounds.center);
+        // spawnPointBounds = new Bounds(rock2ColliderBounds.center, rock2ColliderBounds.size);//collider.bounds;
+        // MarkupSpawnAreas(spawnPointBounds.center);
 
-        spawnPointBounds = new Bounds(rock3ColliderBounds.center, rock3ColliderBounds.size);//collider.bounds;
-        MarkupSpawnAreas(spawnPointBounds.center);
+        // spawnPointBounds = new Bounds(rock3ColliderBounds.center, rock3ColliderBounds.size);//collider.bounds;
+        // MarkupSpawnAreas(spawnPointBounds.center);
 
-        spawnPointBounds = new Bounds(tree1ColliderBounds.center, tree1ColliderBounds.size);//collider.bounds;
-        MarkupSpawnAreas(spawnPointBounds.center);
+        // spawnPointBounds = new Bounds(tree1ColliderBounds.center, tree1ColliderBounds.size);//collider.bounds;
+        // MarkupSpawnAreas(spawnPointBounds.center);
+        #endregion
+        
+        collisonObjects = GameObject.FindGameObjectsWithTag("CollisionObject");
+        for (int i = 0; i < collisonObjects.Length; i++)
+        {
+            spawnPointBounds = new Bounds(collisonObjects[i].GetComponent<BoxCollider>().bounds.center, 
+                collisonObjects[i].GetComponent<BoxCollider>().bounds.size);//collider.bounds;
+            MarkupSpawnAreas(spawnPointBounds.center);
+        }
     }
 
     void spawnAdditionalSpawnPoints(bool allignAtField = false)

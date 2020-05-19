@@ -13,26 +13,66 @@ public class AutoAllocator : MonoBehaviour
     Bounds spawnPointBounds;
     public static int currentPointsAmmountOnTheField;
 
+    #region Other Collisions
+    Bounds rock1ColliderBounds, rock2ColliderBounds, rock3ColliderBounds, tree1ColliderBounds;
+    GameObject rock1, rock2, rock3, tree1;
+    #endregion
+
     private void Start()
     {
         OnAutoLocateClick();
+
+        #region Сollision assigner
+        tree1 = GameObject.Find("TreeTrunk");
+        rock1 = GameObject.Find("Cube (7)");
+        rock2 = GameObject.Find("Cube (8)");
+        rock3 = GameObject.Find("Cube (5)");
+
+        rock1ColliderBounds = rock1.GetComponent<BoxCollider>().bounds;
+        rock2ColliderBounds = rock2.GetComponent<BoxCollider>().bounds;
+        rock3ColliderBounds = rock3.GetComponent<BoxCollider>().bounds;
+        tree1ColliderBounds = tree1.GetComponent<BoxCollider>().bounds;
+        #endregion
     }
 
-    private void Update()
-    {
-        if (currentPointsAmmountOnTheField == 2)
+    private void Update(){
+        if (currentPointsAmmountOnTheField <= 2)
         {
+            spawnAreas.Clear();
+            spawnAreas.Add(new Bounds(new Vector3(0, 0, 0), new Vector3(Width(), 0, Height())));
+
+            
             spawnAdditionalSpawnPoints();
             currentPointsAmmountOnTheField += 2;
+            
         }
+    }
+
+    void CollisionCounter(){
+        spawnPointBounds = new Bounds(rock1ColliderBounds.center, rock1ColliderBounds.size);//collider.bounds;
+        MarkupSpawnAreas(spawnPointBounds.center);
+
+        spawnPointBounds = new Bounds(rock2ColliderBounds.center, rock2ColliderBounds.size);//collider.bounds;
+        MarkupSpawnAreas(spawnPointBounds.center);
+
+        spawnPointBounds = new Bounds(rock3ColliderBounds.center, rock3ColliderBounds.size);//collider.bounds;
+        MarkupSpawnAreas(spawnPointBounds.center);
+
+        spawnPointBounds = new Bounds(tree1ColliderBounds.center, tree1ColliderBounds.size);//collider.bounds;
+        MarkupSpawnAreas(spawnPointBounds.center);
     }
 
     void spawnAdditionalSpawnPoints(bool allignAtField = false)
     {
         this.allignAtField = allignAtField; 
         var collider = pointPref.GetComponent<CircleCollider2D>();
+
         spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, new Vector3(65, 0, 65));//collider.bounds;
         MarkupSpawnAreas(spawnPointBounds.center);
+
+        CollisionCounter();
+
+        spawnPointBounds = new Bounds(new Vector3(0,0,0), new Vector3(65,0,65));
         for (int i = 0; i < 2; i++) CreateSpawnPoint(i);
         for (int i = 0; i < 2; i++) AutoLocateSpawnPoint(i);
     }
@@ -45,8 +85,12 @@ public class AutoAllocator : MonoBehaviour
         //spawnAreas.Add(new Bounds(new Vector3(0, -3), new Vector3(Width(), 4)));
         //spawnAreas.Add(new Bounds(new Vector3(-4, 0), new Vector3(4, Height())));
         //spawnAreas.Add(new Bounds(new Vector3(4, 0), new Vector3(4, Height())));
-        spawnPointBounds = GameObject.Find("rad4").GetComponent<SphereCollider>().bounds;
-        MarkupSpawnAreas(spawnPointBounds.center);
+        if(GameObject.Find("rad4") != null) {
+            spawnPointBounds = GameObject.Find("rad4").GetComponent<SphereCollider>().bounds;
+            MarkupSpawnAreas(spawnPointBounds.center);
+        }
+
+        CollisionCounter();
 
         spawnPoints = new GameObject[8];
         currentPointsAmmountOnTheField = spawnPoints.Length;
@@ -130,7 +174,7 @@ public class AutoAllocator : MonoBehaviour
             if (!AreBoundsOverlap(area, occupiedArea)) continue;
             spawnAreas.Remove(area);
             SplitSpawnArea(area, occupiedArea);
-
+            
             c++; if (c > 100) break;
         }
     }

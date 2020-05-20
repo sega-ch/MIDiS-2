@@ -72,11 +72,8 @@ public class AutoAllocator : MonoBehaviour
         }
     }
 
-    void spawnAdditionalSpawnPoints(bool allignAtField = false)
-    {
-        this.allignAtField = allignAtField; 
-        var collider = pointPref.GetComponent<CircleCollider2D>();
-
+    void spawnAdditionalSpawnPoints()
+    { 
         spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, new Vector3(65, 0, 65));//collider.bounds;
         MarkupSpawnAreas(spawnPointBounds.center);
 
@@ -87,9 +84,8 @@ public class AutoAllocator : MonoBehaviour
         for (int i = 0; i < 2; i++) AutoLocateSpawnPoint(i);
     }
 
-    public void OnAutoLocateClick(bool allignAtField = false)
+    public void OnAutoLocateClick()
     {
-        this.allignAtField = allignAtField;
         spawnAreas.Add(new Bounds(new Vector3(0, 0, 0), new Vector3(Width(), 0, Height())));
         //spawnAreas.Add(new Bounds(new Vector3(0, 3), new Vector3(Width(), 4)));
         //spawnAreas.Add(new Bounds(new Vector3(0, -3), new Vector3(Width(), 4)));

@@ -33,8 +33,6 @@ public class AutoAllocator : MonoBehaviour
         // rock3ColliderBounds = rock3.GetComponent<BoxCollider>().bounds;
         // tree1ColliderBounds = tree1.GetComponent<BoxCollider>().bounds;
         #endregion
-
-        
     }
 
     private void Update(){

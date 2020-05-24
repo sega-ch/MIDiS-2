@@ -12,10 +12,9 @@ public class AutoAllocator : MonoBehaviour
     Bounds spawnPointBounds;
     public static int currentPointsAmmountOnTheField;
     GameObject[] collisonObjects;
-
     #region Other Collisions
-    Bounds rock1ColliderBounds, rock2ColliderBounds, rock3ColliderBounds, tree1ColliderBounds;
-    GameObject rock1, rock2, rock3, tree1;
+    // Bounds rock1ColliderBounds, rock2ColliderBounds, rock3ColliderBounds, tree1ColliderBounds;
+    // GameObject rock1, rock2, rock3, tree1;
     #endregion
 
     private void Start()

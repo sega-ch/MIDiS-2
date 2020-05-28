@@ -96,7 +96,7 @@ public class AutoAllocator : MonoBehaviour
 
         CollisionCounter();
 
-        spawnPoints = new GameObject[8];
+        spawnPoints = new GameObject[6];
         currentPointsAmmountOnTheField = spawnPoints.Length;
         var collider = pointPref.GetComponent<CircleCollider2D>();
         spawnPointBounds = new Bounds(new Vector3(0,0,0), new Vector3(65,0,65));//collider.bounds;
@@ -179,7 +179,7 @@ public class AutoAllocator : MonoBehaviour
             spawnAreas.Remove(area);
             SplitSpawnArea(area, occupiedArea);
             
-            c++; if (c > 10000) break;
+            c++; if (c > 200000) break;
         }
     }
 

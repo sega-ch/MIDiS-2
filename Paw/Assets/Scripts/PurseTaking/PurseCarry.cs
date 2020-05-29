@@ -5,7 +5,8 @@ using UnityEngine;
 public class PurseCarry : MonoBehaviour
 {
     public GameObject PurseOnTheDog;
-    public GameObject HatOnTheDog;
+    public GameObject HatOnTheDogLeather;
+    public GameObject HatOnTheDogStraw;
     public bool isCarringObject = false;
 
     void Start() {
@@ -21,7 +22,8 @@ public class PurseCarry : MonoBehaviour
 
         else if(other.gameObject.CompareTag("Hat") && !isCarringObject){
             isCarringObject = true;
-            HatOnTheDog.SetActive(true);
+            if(other.gameObject.name == "strawhat1") HatOnTheDogStraw.SetActive(true);
+            else HatOnTheDogLeather.SetActive(true);
             Destroy(other.gameObject);
         }
     }

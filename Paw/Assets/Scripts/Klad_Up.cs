@@ -4,52 +4,46 @@ using UnityEngine;
 
 public class Klad_Up : MonoBehaviour
 {
-    public GameObject dog;//псина
+    private GameObject data;
+    TreasureEditor treasureEditor;
+    GameObject dog;//псина
     public GameObject rad1;//полоски радара
     public GameObject rad2;
     public GameObject rad3;
     public GameObject rad4;
     public static int podnatoKladov = 0;
-    public static bool koshelokUp = false; //поднят ли кошелек
+    private void Start()
+    {
+        dog = GameObject.Find("Dog");
+        data = GameObject.Find("Data");
+        treasureEditor = data.GetComponent<TreasureEditor>();
+    }
     private void OnTriggerEnter(Collider other)//зона на которой происходт потбор предмета
-    {   if (koshelokUp == false)//если не подобран кошель
+    {   if (treasureEditor.purse == false)//если не подобран кошель
         {
             if (other.gameObject.tag == "Klad")//проверяем этот ли клад по тегу
             {
                 if(other.gameObject.CompareTag("Klad")) AutoAllocator.currentPointsAmmountOnTheField--;
-                Debug.Log(AutoAllocator.currentPointsAmmountOnTheField);
-                Debug.Log("Есть пробитие!");
                 Destroy(other.gameObject);//уничтажаем клад
                 podnatoKladov++;
-                if (RedactorKlada.Do_stadii_1 <= podnatoKladov && RedactorKlada.Do_stadii_2 < podnatoKladov)
+                if (treasureEditor.toStage1 < podnatoKladov)
                 {
-                    byte vibor;
-                    vibor = gameObject.GetComponent<RedactorKlada>().Stadiya(RedactorKlada.Kosto4ka_1, RedactorKlada.ZolotayaKosto4ka_1, RedactorKlada.Koshelok_1, RedactorKlada.Amylet_1);
-                    
+                    treasureEditor.Stages();//метод рандомного клада
                 }
-                if (RedactorKlada.Do_stadii_1 <= podnatoKladov && RedactorKlada.Do_stadii_2 < podnatoKladov)
+                else
                 {
-                    gameObject.GetComponent<RedactorKlada>().Stadiya(RedactorKlada.Kosto4ka_1, RedactorKlada.ZolotayaKosto4ka_1, RedactorKlada.Koshelok_1, RedactorKlada.Amylet_1);
-
+                    treasureEditor.bone = true;
                 }
-                if (RedactorKlada.Do_stadii_1 <= podnatoKladov && RedactorKlada.Do_stadii_2 < podnatoKladov)
-                {
-                    gameObject.GetComponent<RedactorKlada>().Stadiya(RedactorKlada.Kosto4ka_1, RedactorKlada.ZolotayaKosto4ka_1, RedactorKlada.Koshelok_1, RedactorKlada.Amylet_1);
-                    
-                }
-                if (RedactorKlada.Do_stadii_1 <= podnatoKladov && RedactorKlada.Do_stadii_2 < podnatoKladov)
-                {
-                    gameObject.GetComponent<RedactorKlada>().Stadiya(RedactorKlada.Kosto4ka_1, RedactorKlada.ZolotayaKosto4ka_1, RedactorKlada.Koshelok_1, RedactorKlada.Amylet_1);
-
-                }
+                Debug.Log("Очки "+podnatoKladov);
+                Debug.Log("Кость " + treasureEditor.bone);
+                Debug.Log("Золотая кость " + treasureEditor.goldenBone);
+                Debug.Log("Кошелек " + treasureEditor.purse);
+                Debug.Log("Амулет " + treasureEditor.amulet);
+                treasureEditor.bone = false;
+                treasureEditor.goldenBone = false;
+                treasureEditor.amulet = false;
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
                 Invoke("Timef", 2);//запускаем метод через две секунды (если примерно столько будет анимация)
-            }
-            if (other.gameObject.tag == "Koshelok") //если это косшелек
-            {
-                koshelokUp = true;
-                dog.gameObject.GetComponent<Joystic_touch>().enabled = false;
-                Invoke("Timef", 2);
             }
         }
         

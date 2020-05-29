@@ -88,7 +88,9 @@ public class AutoAllocator : MonoBehaviour
         //spawnAreas.Add(new Bounds(new Vector3(0, -3), new Vector3(Width(), 4)));
         //spawnAreas.Add(new Bounds(new Vector3(-4, 0), new Vector3(4, Height())));
         //spawnAreas.Add(new Bounds(new Vector3(4, 0), new Vector3(4, Height())));
-        
+        spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, new Vector3(65, 0, 65));//collider.bounds;
+        MarkupSpawnAreas(spawnPointBounds.center);
+
         if(GameObject.Find("rad4") != null) {
             spawnPointBounds = GameObject.Find("rad4").GetComponent<SphereCollider>().bounds;
             MarkupSpawnAreas(spawnPointBounds.center);

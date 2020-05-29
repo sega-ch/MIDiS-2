@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Strelka : MonoBehaviour
 {
+    private GameObject data;
+    TreasureEditor treasureEditor;
     public GameObject strelka1;
     public GameObject strelka2;
     GameObject hozain1;
     GameObject hozain2;
     Transform trHozain1;
     Transform trHozain2;
+    private void Start()
+    {
+        data = GameObject.Find("Data");
+        treasureEditor = data.GetComponent<TreasureEditor>();
+    }
     void Update()
     {
-        if (Klad_Up.koshelokUp==true)
+        if (treasureEditor.purse == true)
         {
             hozain1 = GameObject.FindWithTag("Hozain_1");
             trHozain1 = hozain1.transform;

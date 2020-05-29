@@ -37,6 +37,7 @@ public class TreasureEditor : MonoBehaviour
     public byte amulet4;
     [HideInInspector]
     public bool bone = false;
+    
     [HideInInspector]
     public bool goldenBone = false;
     [HideInInspector]
@@ -52,18 +53,22 @@ public class TreasureEditor : MonoBehaviour
             if (sc == 1)
             {
                 bone = true;
+                Debug.Log("Bone");
             }
             if (sc == 2)
             {
                 goldenBone = true;
+                Debug.Log("GoldenBone");
             }
             if (sc == 3)
             {
                 purse = true;
+                Debug.Log("Purse");
             }
             if (sc == 4)
             {
                 amulet = true;
+                Debug.Log("Amulet");
             }
             return;
         }
@@ -164,7 +169,6 @@ public class TreasureEditor : MonoBehaviour
             }
         }
         
-    M:
         var ss = Random.Range(0, 100);
         if (nums[ss] == 1)
         {
@@ -183,6 +187,7 @@ public class TreasureEditor : MonoBehaviour
         {
             return (4);
         }
-        goto M;
+
+        return 0;
     }
 }

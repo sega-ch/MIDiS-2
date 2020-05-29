@@ -88,6 +88,7 @@ public class AutoAllocator : MonoBehaviour
         //spawnAreas.Add(new Bounds(new Vector3(0, -3), new Vector3(Width(), 4)));
         //spawnAreas.Add(new Bounds(new Vector3(-4, 0), new Vector3(4, Height())));
         //spawnAreas.Add(new Bounds(new Vector3(4, 0), new Vector3(4, Height())));
+        
         if(GameObject.Find("rad4") != null) {
             spawnPointBounds = GameObject.Find("rad4").GetComponent<SphereCollider>().bounds;
             MarkupSpawnAreas(spawnPointBounds.center);
@@ -178,7 +179,7 @@ public class AutoAllocator : MonoBehaviour
             spawnAreas.Remove(area);
             SplitSpawnArea(area, occupiedArea);
             
-            c++; if (c > 100) break;
+            c++; if (c > 10000) break;
         }
     }
 

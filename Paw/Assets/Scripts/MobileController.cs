@@ -11,7 +11,6 @@ public class MobileController : MonoBehaviour,IDragHandler,IPointerUpHandler,IPo
     private Vector2 inputVector;
 
 
-
     public virtual void OnPointerDown(PointerEventData ped)
     {
         OnDrag(ped);

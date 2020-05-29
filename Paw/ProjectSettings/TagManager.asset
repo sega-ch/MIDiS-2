@@ -11,6 +11,8 @@ TagManager:
   - Hozain_1
   - Hozain_2
   - CollisionObject
+  - Purse
+  - Hat
   layers:
   - Default
   - TransparentFX

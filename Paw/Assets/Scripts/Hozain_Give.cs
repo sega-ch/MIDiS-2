@@ -9,6 +9,9 @@ public class Hozain_Give : MonoBehaviour
     GameObject dog;//псина
     public GameObject strelka1;
     public GameObject strelka2;
+    public GameObject purseOnTheDog;
+    public GameObject hatOnTheDog;
+    public GameObject strawhatOnTheDog;
     private void Start()
     {
         dog = GameObject.Find("Dog");
@@ -24,16 +27,26 @@ public class Hozain_Give : MonoBehaviour
                 Debug.Log("Есть пробитие!");
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
                 treasureEditor.purse = false;
+                GameObject.Find("eat").GetComponent<Klad_Up>().isCarringObject = false;
+                treasureEditor.score = treasureEditor.score + 50;
+                if (purseOnTheDog.activeSelf)
+                {
+                    purseOnTheDog.SetActive(false);
+                }
+                if (hatOnTheDog.activeSelf)
+                {
+                    hatOnTheDog.SetActive(false);
+                }
+                if (strawhatOnTheDog.activeSelf)
+                {
+                    strawhatOnTheDog.SetActive(false);
+                }
+                GameObject.Find("eat").GetComponent<Klad_Up>().isCarringObject = false;
                 strelka1.SetActive(false);
                 strelka2.SetActive(false);
                 Invoke("TimeT", 2);
             }
         }
-    }
-    void TimeG()//мто что мы запускаем через время
-    {
-        Klad_Up klad_Up = new Klad_Up();
-        klad_Up.Timef();
     }
     void TimeT()//мто что мы запускаем через время
     {

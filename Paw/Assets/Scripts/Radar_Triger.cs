@@ -15,7 +15,7 @@ public class Radar_Triger : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)//если клад входит в зону действия радара
     {
-        if (treasureEditor.purse == false)//если не подобран кошель
+        if (treasureEditor.purse == false && treasureEditor.amulet == false)//если не подобран кошель
         {
             if (other.gameObject.tag == "Klad")//проверяем что это клад по тегу
             {
@@ -25,8 +25,7 @@ public class Radar_Triger : MonoBehaviour
                 }
             }
         }
-
-    }
+     }
 
     private void OnTriggerExit(Collider other)//если клад выходит из зоны действия радара
     {

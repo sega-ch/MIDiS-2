@@ -12,6 +12,11 @@ public class Klad_Up : MonoBehaviour
     public GameObject rad3;
     public GameObject rad4;
     public static int podnatoKladov = 0;
+    public GameObject PurseOnTheDog;
+    public GameObject HatOnTheDogLeather;
+    public GameObject HatOnTheDogStraw;
+  //  [HideInInspector]
+    public bool isCarringObject = false;
     private void Start()
     {
         dog = GameObject.Find("Dog");
@@ -19,20 +24,21 @@ public class Klad_Up : MonoBehaviour
         treasureEditor = data.GetComponent<TreasureEditor>();
     }
     private void OnTriggerEnter(Collider other)//зона на которой происходт потбор предмета
-    {   if (treasureEditor.purse == false)//если не подобран кошель
+    {   if (treasureEditor.purse == false && treasureEditor.amulet == false)//если не подобран кошель
         {
             if (other.gameObject.tag == "Klad")//проверяем этот ли клад по тегу
             {
                 if(other.gameObject.CompareTag("Klad")) AutoAllocator.currentPointsAmmountOnTheField--;
                 Destroy(other.gameObject);//уничтажаем клад
                 podnatoKladov++;
-                if (treasureEditor.toStage1 < podnatoKladov)
+                if (treasureEditor.toStage1 < podnatoKladov || treasureEditor.toStage1 == 0)
                 {
                     treasureEditor.Stages();//метод рандомного клада
                 }
                 else
                 {
                     treasureEditor.bone = true;
+                    treasureEditor.score = treasureEditor.score + 25;
                 }
                 Debug.Log("Очки "+podnatoKladov);
                 Debug.Log("Кость " + treasureEditor.bone);
@@ -41,7 +47,6 @@ public class Klad_Up : MonoBehaviour
                 Debug.Log("Амулет " + treasureEditor.amulet);
                 treasureEditor.bone = false;
                 treasureEditor.goldenBone = false;
-                treasureEditor.amulet = false;
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
                 Invoke("Timef", 2);//запускаем метод через две секунды (если примерно столько будет анимация)
             }
@@ -69,4 +74,28 @@ public class Klad_Up : MonoBehaviour
             rad4.SetActive(false);
         }
         }
+    public void purse()
+    {
+        int dos = 0;
+        dos = Random.Range(0, 100);
+        if (treasureEditor.purse == true && !isCarringObject && dos <= 50)
+        {
+            isCarringObject = true;
+            PurseOnTheDog.SetActive(true);
+        }
+        if (treasureEditor.purse == true && !isCarringObject && dos >= 50)
+        {
+            isCarringObject = true;
+            int dosc = 0;
+            dosc = Random.Range(0, 100);
+            if (dosc >= 50)
+            {
+                HatOnTheDogStraw.SetActive(true);
+            }
+            else
+            {
+                HatOnTheDogLeather.SetActive(true);
+            }
+        }
+    }
 }

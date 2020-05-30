@@ -8,10 +8,13 @@ public class Strelka : MonoBehaviour
     TreasureEditor treasureEditor;
     public GameObject strelka1;
     public GameObject strelka2;
+    public GameObject strelka3;
     GameObject hozain1;
     GameObject hozain2;
+    GameObject obelisk;
     Transform trHozain1;
     Transform trHozain2;
+    Transform trObelisk;
     private void Start()
     {
         data = GameObject.Find("Data");
@@ -29,6 +32,13 @@ public class Strelka : MonoBehaviour
             strelka2.transform.LookAt(trHozain2);
             strelka1.SetActive(true);
             strelka2.SetActive(true);
+        }
+        if (treasureEditor.amulet == true)
+        {
+            obelisk = GameObject.FindWithTag("Obelisk");
+            trObelisk = obelisk.transform;
+            strelka3.transform.LookAt(trObelisk);
+            strelka3.SetActive(true);
         }
     }
 }

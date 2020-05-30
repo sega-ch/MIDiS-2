@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TreasureEditor : MonoBehaviour
 {
@@ -35,16 +38,28 @@ public class TreasureEditor : MonoBehaviour
     public byte goldenBone4;
     public byte purse4;
     public byte amulet4;
+
     [HideInInspector]
     public bool bone = false;
-    
     [HideInInspector]
     public bool goldenBone = false;
     [HideInInspector]
     public bool purse = false;
     [HideInInspector]
     public bool amulet = false;
+    [HideInInspector]
+    public int score = 0;
+    GameObject scoreText;
+   // public Text scoreTextTX;
 
+    private void Start()
+    {
+        scoreText = GameObject.Find("Score");
+    }
+    private void Update()
+    {
+        scoreText.GetComponent<Text>().text = Convert.ToString(score);
+    }
     public void Stages()
     {
         if(toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
@@ -53,22 +68,21 @@ public class TreasureEditor : MonoBehaviour
             if (sc == 1)
             {
                 bone = true;
-                Debug.Log("Bone");
+                score = score + 25;
             }
             if (sc == 2)
             {
                 goldenBone = true;
-                Debug.Log("GoldenBone");
+                score = score + 60;
             }
             if (sc == 3)
             {
                 purse = true;
-                Debug.Log("Purse");
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
             }
             if (sc == 4)
             {
                 amulet = true;
-                Debug.Log("Amulet");
             }
             return;
         }
@@ -78,14 +92,17 @@ public class TreasureEditor : MonoBehaviour
             if (sc == 1)
             {
                 bone = true;
+                score = score + 25;
             }
             if (sc == 2)
             {
                 goldenBone = true;
+                score = score + 60;
             }
             if (sc == 3)
             {
                 purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
             }
             if (sc == 4)
             {
@@ -99,14 +116,17 @@ public class TreasureEditor : MonoBehaviour
             if (sc == 1)
             {
                 bone = true;
+                score = score + 25;
             }
             if (sc == 2)
             {
                 goldenBone = true;
+                score = score + 60;
             }
             if (sc == 3)
             {
                 purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
             }
             if (sc == 4)
             {
@@ -120,14 +140,17 @@ public class TreasureEditor : MonoBehaviour
             if (sc == 1)
             {
                 bone = true;
+                score = score + 25;
             }
             if (sc == 2)
             {
                 goldenBone = true;
+                score = score + 60;
             }
             if (sc == 3)
             {
                 purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
             }
             if (sc == 4)
             {
@@ -169,7 +192,7 @@ public class TreasureEditor : MonoBehaviour
             }
         }
         
-        var ss = Random.Range(0, 100);
+        var ss = UnityEngine.Random.Range(0, 100);
         if (nums[ss] == 1)
         {
             return (1);

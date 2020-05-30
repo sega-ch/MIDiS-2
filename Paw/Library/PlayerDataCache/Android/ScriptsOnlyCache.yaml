@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AutoAllocator
     - CUMera
+    - ClockAndTimer
     - Hozain_Give
     - Joystic_touch
     - Klad_Up
@@ -15,6 +16,12 @@ ScriptsOnlyBuild:
     - TreasureEditor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -25,6 +32,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -57,41 +65,51 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 11284}
+      Script: {instanceID: 11306}
     - Class: 114
-      Script: {instanceID: 11314}
+      Script: {instanceID: 11332}
     - Class: 114
-      Script: {instanceID: 11352}
+      Script: {instanceID: 11336}
     - Class: 114
-      Script: {instanceID: 11480}
+      Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11652}
+      Script: {instanceID: 11506}
     - Class: 114
-      Script: {instanceID: 11692}
+      Script: {instanceID: 11680}
     - Class: 114
-      Script: {instanceID: 11702}
+      Script: {instanceID: 11720}
     - Class: 114
-      Script: {instanceID: 11742}
+      Script: {instanceID: 11730}
     - Class: 114
-      Script: {instanceID: 11784}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 12038}
+      Script: {instanceID: 11812}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12066}
     - Class: 114
-      Script: {instanceID: 12282}
+      Script: {instanceID: 12306}
     - Class: 114
-      Script: {instanceID: 12604}
+      Script: {instanceID: 12310}
     - Class: 114
-      Script: {instanceID: 12744}
+      Script: {instanceID: 12632}
     - Class: 114
-      Script: {instanceID: 12886}
+      Script: {instanceID: 12772}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12914}
+    - Class: 114
+      Script: {instanceID: 12984}
+    - Class: 114
+      Script: {instanceID: 15458}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 134
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -286,6 +304,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 7c5084f22bda962db730d7217e88651b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: LowPolyWater
+    className: LowPolyWater
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -616,6 +640,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 600b936876dc79ce94cee8562d77b732
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClockAndTimer
+  - hash:
+      serializedVersion: 2
+      Hash: 0fc40558f06c852c8e04d326ef1d03a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Clock
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

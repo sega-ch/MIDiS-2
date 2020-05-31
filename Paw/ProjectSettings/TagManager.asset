@@ -13,7 +13,11 @@ TagManager:
   - CollisionObject
   - Purse
   - Hat
+<<<<<<< HEAD
+  - Amulet
+=======
   - Obelisk
+>>>>>>> 02e6cb272fcad83368a58c57bc5c6520f7870609
   layers:
   - Default
   - TransparentFX

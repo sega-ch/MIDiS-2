@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,7 +42,7 @@ public class Klad_Up : MonoBehaviour
                 else
                 {
                     treasureEditor.bone = true;
-                    treasureEditor.score = treasureEditor.score + 25;
+                    treasureEditor.score = treasureEditor.score + Convert.ToInt32((25 * treasureEditor.pointMultiplier));
                     Controller.TreasureAmmount--;
                 }
                 Debug.Log("Очки "+podnatoKladov);
@@ -90,7 +91,7 @@ public class Klad_Up : MonoBehaviour
     public void purse()
     {
         int dos = 0;
-        dos = Random.Range(0, 100);
+        dos = UnityEngine.Random.Range(0, 100);
         if (treasureEditor.purse == true && !isCarringObject && dos <= 50)
         {
             isCarringObject = true;
@@ -100,7 +101,7 @@ public class Klad_Up : MonoBehaviour
         {
             isCarringObject = true;
             int dosc = 0;
-            dosc = Random.Range(0, 100);
+            dosc = UnityEngine.Random.Range(0, 100);
             if (dosc >= 50)
             {
                 HatOnTheDogStraw.SetActive(true);

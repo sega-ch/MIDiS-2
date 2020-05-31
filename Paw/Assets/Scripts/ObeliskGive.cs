@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,17 +26,20 @@ public class ObeliskGive : MonoBehaviour
             {
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
                 treasureEditor.amulet = false;
-                treasureEditor.score = treasureEditor.score + 40;
-
+                treasureEditor.score = treasureEditor.score + Convert.ToInt32((40 * treasureEditor.pointMultiplier));
                 strelka.SetActive(false);
+                treasureEditor.pointMultiplier = 1.5f;
+                Invoke("EndOfEffect", 10);
                 Invoke("TimeT", 0.5f);
-                strelka.SetActive(false);
-                Invoke("TimeT", 2);
             }
         }
     }
     void TimeT()//мто что мы запускаем через время
     {
         dog.gameObject.GetComponent<Joystic_touch>().enabled = true;
+    }
+    void EndOfEffect()
+    {
+        treasureEditor.pointMultiplier = 1;
     }
 }

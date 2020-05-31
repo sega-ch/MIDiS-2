@@ -3,17 +3,19 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AutoAllocator
     - CUMera
-    - ClockAndTimer
+    - Controller
     - Hozain_Give
     - Joystic_touch
     - Klad_Up
+    - Menu
     - MobileController
-    - PurseCarry
-    - PurseOnTheDog
+    - ObeliskGive
     - Radar_Triger
     - RedactorKlada
+    - SceneTransfer
     - Strelka
     - TreasureEditor
+    - TreasureTextBox
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -29,12 +31,14 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Level1.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -61,50 +65,56 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
-    - Class: 111
-      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11174}
+      Script: {instanceID: 11228}
     - Class: 114
-      Script: {instanceID: 11306}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11332}
+      Script: {instanceID: 11386}
     - Class: 114
-      Script: {instanceID: 11336}
+      Script: {instanceID: 11428}
     - Class: 114
-      Script: {instanceID: 11374}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11736}
     - Class: 114
-      Script: {instanceID: 11680}
+      Script: {instanceID: 11776}
     - Class: 114
-      Script: {instanceID: 11720}
+      Script: {instanceID: 11786}
     - Class: 114
-      Script: {instanceID: 11730}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 11770}
+      Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 11812}
+      Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12066}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 12306}
+      Script: {instanceID: 12372}
     - Class: 114
-      Script: {instanceID: 12310}
+      Script: {instanceID: 12376}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12400}
     - Class: 114
-      Script: {instanceID: 12772}
+      Script: {instanceID: 12504}
     - Class: 114
-      Script: {instanceID: 12914}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 12984}
+      Script: {instanceID: 12996}
     - Class: 114
-      Script: {instanceID: 15458}
+      Script: {instanceID: 13066}
+    - Class: 114
+      Script: {instanceID: 13112}
+    - Class: 114
+      Script: {instanceID: 74586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -140,6 +150,61 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 1953259897
+      Script: {instanceID: 0}
+    Assets/Scenes/Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11228}
+    - Class: 114
+      Script: {instanceID: 11386}
+    - Class: 114
+      Script: {instanceID: 11428}
+    - Class: 114
+      Script: {instanceID: 11826}
+    - Class: 114
+      Script: {instanceID: 12214}
+    - Class: 114
+      Script: {instanceID: 12236}
+    - Class: 114
+      Script: {instanceID: 12712}
+    - Class: 114
+      Script: {instanceID: 13066}
+    - Class: 114
+      Script: {instanceID: 48376}
+    - Class: 114
+      Script: {instanceID: 74586}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -270,7 +335,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: fd9f5f61267a3449b705948cdac81b08
+      Hash: ee96e37c7e76fb20d15f4961e869471c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Hozain_Give
@@ -304,6 +369,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: a8bad63dc38d5729e38889649e4ee034
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: opencloseDoor
   - hash:
       serializedVersion: 2
       Hash: 7c5084f22bda962db730d7217e88651b
@@ -360,7 +431,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 6f91678d0f26318a30db6dcc55895d05
+      Hash: 45b717278b9d323c2e65973f229fdcdb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Klad_Up
@@ -376,6 +447,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 0fc40558f06c852c8e04d326ef1d03a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Clock
+  - hash:
+      serializedVersion: 2
+      Hash: 82df1638108e0e6f100d144bb14c53c6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerLook
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -396,13 +479,19 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 1f75f7ef1e894cbb2b08245adb2907fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: opencloseDoor1
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: fd9f5f61267a3449b705948cdac81b08
+      Hash: 4df62096d563fca90468398bedf3642c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Strelka
@@ -432,6 +521,18 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 1e5fb5f8729ec04c4bff794392ac17f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerMove
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BrokenVector.LowPolyFencePack
+    className: DoorToggle
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -444,10 +545,22 @@ ScriptsOnlyBuild:
     className: CUMera
   - hash:
       serializedVersion: 2
-      Hash: 3f2d0cd643ab40dcfdcb73658136024c
+      Hash: 259fd16dee1bc2bea605665b08e7273e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TreasureEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 26fe8d64d18a6adb64611d959c11fe05
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CarAttach
+  - hash:
+      serializedVersion: 2
+      Hash: 963c0743d6109f403179078a7c5fd981
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Controller
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -492,10 +605,34 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 1264318873c977ce783e3cc8dc561d16
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Drawer_Pull_X
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TreasureTextBox
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 6cfbe3f38b16b3f621af8a711bece725
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Drawer_Pull_Z
+  - hash:
+      serializedVersion: 2
+      Hash: 2e0617456ef7995d079420da481211e4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BrokenVector.LowPolyFencePack
+    className: DoorController
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
@@ -510,6 +647,12 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
+      Hash: 1ce6f757bda026ce273c4a348afe5c9a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: opencloseWindow1
+  - hash:
+      serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -520,6 +663,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 5648183942e1c22d510c7a8406031fc8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlyCameraBehaviour
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -624,10 +773,22 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FerrisSpin
+  - hash:
+      serializedVersion: 2
       Hash: 7072231382eb3c4871b3dd75ad0227e1
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: 46cf0360b3f579522f0123976f8c16a7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ObeliskGive
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -642,17 +803,18 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 600b936876dc79ce94cee8562d77b732
+      Hash: c1f5d188fa4046d29fa6ef258b66149e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ClockAndTimer
+    className: Menu
   - hash:
       serializedVersion: 2
-      Hash: 0fc40558f06c852c8e04d326ef1d03a0
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Clock
+    className: SceneTransfer
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Ralstonnn/Desktop/testPaw.apk
+  - Assets/Scenes/Menu.unity
+  - Assets/Scenes/Level1.unity
+  playerPath: C:/Users/Ralstonnn/Desktop/MiraclePawNotBinary.apk

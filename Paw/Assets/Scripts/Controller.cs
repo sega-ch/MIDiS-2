@@ -11,13 +11,16 @@ public class Controller : MonoBehaviour
     public int TreasureAmmount = 5;
     //SceneTransfer SceneTransfer;
 
-    void Start() {
-        if(SceneTransfer.TreasureAmmount > 0) TreasureAmmount = SceneTransfer.TreasureAmmount;
+    void Start()
+    {
+        if (SceneTransfer.TreasureAmmount > 0) TreasureAmmount = SceneTransfer.TreasureAmmount;
     }
 
-    void Update() {
+    void Update()
+    {
         //if(TreasureAmmount < 0) TreasureAmmount = 0;
-        if(SceneManager.GetActiveScene().name == "Level1" && TreasureAmmount == 0 ){
+        if (SceneManager.GetActiveScene().name == "Level1" && TreasureAmmount == 0)
+        {
             SceneManager.LoadScene("Menu");
         }
     }

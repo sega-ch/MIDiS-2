@@ -9,6 +9,7 @@ public class SceneTransfer : MonoBehaviour
     public static int ScoreInt;
     Controller Controller;
     Text Score;
+    
     // Start is called before the first frame update
     void Start()
     {

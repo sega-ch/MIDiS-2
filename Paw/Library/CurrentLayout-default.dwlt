@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 108
+  controlID: 110
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,10 +124,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 709, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MinSize: {x: 708, y: 492}
+  m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 60
+  controlID: 34
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,8 +147,8 @@ MonoBehaviour:
     y: 0
     width: 429
     height: 635
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -379,20 +379,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Shaders
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Shaders
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\Prost\\OneDrive\\Desktop\\\u0421\u0430\u0431\u043E\u043A\u0430\\MIDiS-2\\Paw"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c84a0000
-    m_LastClickedID: 19144
-    m_ExpandedIDs: 000000002e4a0000304a0000324a0000344a0000364a0000384a00003a4a00003c4a00003e4a0000404a0000424a0000444a0000464a0000484a00004a4a00004c4a00004e4a0000504a0000524a0000544a0000564a0000584a0000c84a000000ca9a3b
+    scrollPos: {x: 0, y: 44}
+    m_SelectedIDs: b04d0000
+    m_LastClickedID: 19888
+    m_ExpandedIDs: 00000000bc470000be470000c0470000c2470000c4470000c6470000c8470000ca470000cc470000ce470000d0470000d2470000d4470000d6470000d8470000da470000dc470000de470000e0470000e2470000e4470000e647000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -420,7 +420,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e4a0000304a0000324a0000344a0000364a0000384a00003a4a00003c4a00003e4a0000404a0000424a0000444a0000464a0000484a00004a4a00004c4a00004e4a0000504a0000524a0000544a0000564a0000584a0000
+    m_ExpandedIDs: 00000000bc470000be470000c0470000c2470000c4470000c6470000c8470000ca470000cc470000ce470000d0470000d2470000d4470000d6470000d8470000da470000dc470000de470000e0470000e2470000e4470000e6470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,24 +542,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 16}
-      m_SelectedIDs: 5e410000
-      m_LastClickedID: 16734
-      m_ExpandedIDs: 82e6ffffecebffff4aecffff32f3ffff3e3f0000dc3f0000
+      scrollPos: {x: 0, y: 1648}
+      m_SelectedIDs: ccf8ffff
+      m_LastClickedID: -1844
+      m_ExpandedIDs: 3af3ffff70fbffff2c38000068380000cc380000723c00008e3c00004c3d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Cat
-        m_OriginalName: Cat
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -20766
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -605,9 +605,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 79.57027, y: 16.828222, z: -54.509193}
+    m_Target: {x: -239.31989, y: -301.09186, z: 265.44083}
     speed: 2
-    m_Value: {x: 79.57027, y: 16.828222, z: -54.509193}
+    m_Value: {x: -239.31989, y: -301.09186, z: 265.44083}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -653,20 +653,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.10093705, y: -0.50522923, z: 0.056924473, w: 0.85543597}
+    m_Target: {x: -0.37552375, y: 0.07881706, z: -0.029444184, w: -0.9232677}
     speed: 2
-    m_Value: {x: 0.10074286, y: -0.50767756, z: 0.057213984, w: 0.8537218}
+    m_Value: {x: -0.37542605, y: 0.07879656, z: -0.029436523, w: -0.9230275}
   m_Size:
-    m_Target: 3.5103264
+    m_Target: 437.42407
     speed: 2
-    m_Value: 3.5103295
+    m_Value: 458.03568
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.1
-    m_SpeedNormalized: 0.5274874
+    m_Speed: 1
+    m_SpeedNormalized: 0.49748757
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_MaximizeOnPlay: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 00000000000000000000000003000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0

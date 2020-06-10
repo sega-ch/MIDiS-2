@@ -102,6 +102,7 @@
     <None Include="Assets\Textures\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
     <None Include="Assets\Textures\Soja Exiles\SE Basic Assets\Scripts and Animations\FPS By Acacia Developer\Scripts by Acacia Developer.txt" />
     <None Include="Assets\Textures\Five Seamless Tileable Ground Textures\read me.txt" />
+    <None Include="Assets\Shaders\AlwaysVisible.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Prost/OneDrive/Desktop/Сабока/MIDiS-2/Paw/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Strelka.cs" />
     <Compile Include="Assets\Scripts\TreasureEditor.cs" />
     <Compile Include="Assets\Scripts\TreasureTextBox.cs" />
+    <Compile Include="Assets\Scripts\WaterGenerator.cs" />
     <Compile Include="Assets\Textures\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\Textures\BrokenVector\LowPolyFencePack\Scripts\DoorController.cs" />
     <Compile Include="Assets\Textures\BrokenVector\LowPolyFencePack\Scripts\DoorToggle.cs" />

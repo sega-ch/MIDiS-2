@@ -8,18 +8,22 @@ public class Radar_Triger : MonoBehaviour
     private GameObject data;
     TreasureEditor treasureEditor;
     public GameObject radar;//полоска радара на которую реагирует скрипт
-    Controller Controller; 
-
+    Controller Controller;
+    CatAI  CatAi;
     private void Start()
     {
         joystic_Touch = GameObject.Find("Dog").GetComponent<Joystic_touch>();
         data = GameObject.Find("Data");
         treasureEditor = data.GetComponent<TreasureEditor>();
-
         Controller = GameObject.Find("Data").GetComponent<Controller>();
+        CatAi = GameObject.Find("Cat").GetComponent<CatAI>();
     }
     private void OnTriggerStay(Collider other)//если клад входит в зону действия радара
     {
+        if (other.gameObject.tag == "Cat")
+        {
+            CatAi.catScare = true;//пугаем кота
+        }
         if (treasureEditor.purse == false && treasureEditor.amulet == false)//если не подобран кошель
         {
             if (other.gameObject.tag == "Klad")//проверяем что это клад по тегу

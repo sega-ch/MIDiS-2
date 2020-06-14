@@ -3,12 +3,14 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AutoAllocator
     - CUMera
+    - CatAI
     - Controller
     - Hozain_Give
     - Joystic_touch
     - Klad_Up
     - Menu
     - MobileController
+    - MouseObj
     - ObeliskGive
     - Radar_Triger
     - RedactorKlada
@@ -16,6 +18,10 @@ ScriptsOnlyBuild:
     - Strelka
     - TreasureEditor
     - TreasureTextBox
+    - WaterGenerator
+    NavMeshComponents.dll:
+    - UnityEngine.AI.NavMeshLink
+    - UnityEngine.AI.NavMeshSurface
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -74,47 +80,57 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11178}
+      Script: {instanceID: 11184}
     - Class: 114
-      Script: {instanceID: 11310}
+      Script: {instanceID: 11276}
     - Class: 114
-      Script: {instanceID: 11336}
+      Script: {instanceID: 11326}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11526}
     - Class: 114
-      Script: {instanceID: 11726}
+      Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 11736}
+      Script: {instanceID: 11744}
     - Class: 114
-      Script: {instanceID: 11776}
+      Script: {instanceID: 11754}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 12164}
+      Script: {instanceID: 11838}
     - Class: 114
-      Script: {instanceID: 12248}
+      Script: {instanceID: 12106}
     - Class: 114
-      Script: {instanceID: 12324}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12328}
+      Script: {instanceID: 12276}
     - Class: 114
       Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 12456}
+      Script: {instanceID: 12356}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 12380}
     - Class: 114
-      Script: {instanceID: 12950}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 13020}
+      Script: {instanceID: 12486}
     - Class: 114
-      Script: {instanceID: 13066}
+      Script: {instanceID: 12660}
+    - Class: 114
+      Script: {instanceID: 12700}
+    - Class: 114
+      Script: {instanceID: 12716}
+    - Class: 114
+      Script: {instanceID: 12988}
+    - Class: 114
+      Script: {instanceID: 13060}
+    - Class: 114
+      Script: {instanceID: 13106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -135,6 +151,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 205
@@ -148,6 +166,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     - Class: 1953259897
       Script: {instanceID: 0}
@@ -171,25 +191,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11178}
+      Script: {instanceID: 11184}
     - Class: 114
-      Script: {instanceID: 11336}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11776}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 12164}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12186}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 12248}
+      Script: {instanceID: 12276}
     - Class: 114
-      Script: {instanceID: 12522}
+      Script: {instanceID: 12552}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 13020}
+      Script: {instanceID: 13060}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,6 +251,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 2b19be13f00df62e6d4d4f5539bcad51
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
+      Hash: c8c672fee8a258266e51b55a210b8083
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshLink
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -425,6 +457,12 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 02e2386b8a0a8e48b66b4e321c3c67c4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MouseObj
+  - hash:
+      serializedVersion: 2
       Hash: b8a5e8091ab0b8861d2add371082c5e0
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -453,6 +491,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Clock
+  - hash:
+      serializedVersion: 2
+      Hash: 7299a528424874bcf6b5736b5305ac37
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
   - hash:
       serializedVersion: 2
       Hash: 82df1638108e0e6f100d144bb14c53c6
@@ -581,6 +625,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: c1a604ec3273fb62053ebe328b7d4285
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CatAI
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -653,6 +703,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 8d4458b476a9a4dd8df843a849fcfffa
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -669,6 +725,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: d928c6a354d037796c8f4552dca8b6f0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WaterGenerator
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -765,6 +827,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 786475ad429208f93fdc1f1c8786333e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CatGo
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b

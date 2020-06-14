@@ -17,6 +17,8 @@ public class Klad_Up : MonoBehaviour
     public GameObject HatOnTheDogLeather;
     public GameObject HatOnTheDogStraw;
     Controller Controller;
+    public static event ActionOnSpawnPoint OnSpawnPointFound;
+    public delegate void ActionOnSpawnPoint(GameObject spawnPoint);
 
   //  [HideInInspector]
     public bool isCarringObject = false;
@@ -33,6 +35,12 @@ public class Klad_Up : MonoBehaviour
             if (other.gameObject.tag == "Klad")//проверяем этот ли клад по тегу
             {
                 if(other.gameObject.CompareTag("Klad")) AutoAllocator.currentPointsAmmountOnTheField--;
+                
+                if (OnSpawnPointFound != null)
+                {
+                    OnSpawnPointFound(other.gameObject);
+                }
+
                 Destroy(other.gameObject);//уничтажаем клад
                 podnatoKladov++;
                 if (treasureEditor.toStage1 < podnatoKladov || treasureEditor.toStage1 == 0)

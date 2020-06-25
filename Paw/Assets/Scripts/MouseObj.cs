@@ -12,15 +12,22 @@ public class MouseObj : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            MouseDayn();
             dayn = true;
         }
         if (!Input.GetMouseButtonDown(0) && dayn != true)
         {
-            Joystick.transform.position = Input.mousePosition;
+            MouseDayn();
         }
         if (Input.GetMouseButtonUp(0))
         {
+            MouseDayn();
             dayn = false;
         }
+
+    }
+    public void MouseDayn()
+    {
+        Joystick.transform.position = Input.mousePosition;
     }
 }

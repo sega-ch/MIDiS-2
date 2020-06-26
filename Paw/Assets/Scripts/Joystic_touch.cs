@@ -28,7 +28,7 @@ public class Joystic_touch : MonoBehaviour
         moveVector.x = mContr.Horizontal() * speedMove;
         moveVector.z = mContr.Vertical() * speedMove;
 
-        if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0) //Поворачиваем в ту сторону в которую идем
+        if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0)
          {
              Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, speedMove, 0.0f);
              transform.rotation = Quaternion.LookRotation(direct);

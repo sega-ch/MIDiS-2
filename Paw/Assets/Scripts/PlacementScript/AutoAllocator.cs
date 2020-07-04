@@ -24,6 +24,7 @@ public class AutoAllocator : MonoBehaviour
     {
         OnAutoLocateClick();
         Klad_Up.OnSpawnPointFound += OnSpawnPointFound;
+        OnLevelUI.OnRestartButtonClick += OnRestartBtnClick;
         #region Сollision assigner
         // tree1 = GameObject.Find("TreeTrunk");
         // rock1 = GameObject.Find("Cube (7)");
@@ -37,7 +38,8 @@ public class AutoAllocator : MonoBehaviour
         #endregion
     }
 
-    void OnSpawnPointFound(GameObject spawnPoint){
+    void OnSpawnPointFound(GameObject spawnPoint)
+    {
         spawnPoints.Remove(spawnPoint);
     }
 
@@ -65,6 +67,15 @@ public class AutoAllocator : MonoBehaviour
         spawnPointBounds = new Bounds(new Vector3(0, 0, 0), new Vector3(65, 0, 65));//collider.bounds;
         for (int i = 0; i < currentPointsAmmountOnTheField; i++) CreateSpawnPoint(i);
         for (int i = 0; i < currentPointsAmmountOnTheField; i++) AutoLocateSpawnPoint(i);
+    }
+
+    //Event that works when u click on restart button in "level menu"
+    void OnRestartBtnClick(bool restart)
+    {
+        spawnAreas.Clear();
+        spawnPoints.Clear();
+        staticBounds.Clear();
+        OnAutoLocateClick();
     }
 
     private void Update()

@@ -20,7 +20,7 @@ public class Joystic_touch : MonoBehaviour
     {
         CharacterMove();
         GamingGravity();
-        
+
     }
     private void CharacterMove() //Метод передвижения
     {
@@ -29,11 +29,11 @@ public class Joystic_touch : MonoBehaviour
         moveVector.z = mContr.Vertical() * speedMove;
 
         if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0)
-         {
-             Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, speedMove, 0.0f);
-             transform.rotation = Quaternion.LookRotation(direct);
-         }
-         moveVector.y = gravityForce;
+        {
+            Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, speedMove, 0.0f);
+            transform.rotation = Quaternion.LookRotation(direct);
+        }
+        moveVector.y = gravityForce;
         ch_controller.Move(moveVector * Time.deltaTime);
     }
     private void GamingGravity() //Метод пдения
@@ -44,5 +44,5 @@ public class Joystic_touch : MonoBehaviour
             gravityForce = -1f;
     }
 }
-    
+
 

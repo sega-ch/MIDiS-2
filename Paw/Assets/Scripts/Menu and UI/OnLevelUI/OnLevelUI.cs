@@ -10,7 +10,7 @@ public class OnLevelUI : MonoBehaviour
     public GameObject OnLevelUIPnl;
     public static int initialSpawnPointsAmmountOnTheField;
     public static event ActionOnRestart OnRestartButtonClick;
-    public delegate void ActionOnRestart(bool restart);
+    public delegate void ActionOnRestart();
     public GameObject Dog;
 
     private void Start()
@@ -31,10 +31,7 @@ public class OnLevelUI : MonoBehaviour
         PausePnl.SetActive(false);
     }
 
-    public void OnMainMenuBtnClick()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+    public void OnMainMenuBtnClick() => SceneManager.LoadScene("Menu");
 
     public void OnRestartBtnClick()
     {
@@ -48,7 +45,7 @@ public class OnLevelUI : MonoBehaviour
             Destroy(SpawnPoint);
         }
 
-        OnRestartButtonClick(true);
+        OnRestartButtonClick();
 
         OnLevelUIPnl.SetActive(true);
         PausePnl.SetActive(false);

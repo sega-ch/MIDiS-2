@@ -38,10 +38,8 @@ public class AutoAllocator : MonoBehaviour
         #endregion
     }
 
-    void OnSpawnPointFound(GameObject spawnPoint)
-    {
-        spawnPoints.Remove(spawnPoint);
-    }
+    //Removing spawn point from list of spawn point's bounds 
+    void OnSpawnPointFound(GameObject spawnPoint) => spawnPoints.Remove(spawnPoint);
 
     public void OnAutoLocateClick()
     {
@@ -69,14 +67,16 @@ public class AutoAllocator : MonoBehaviour
         for (int i = 0; i < currentPointsAmmountOnTheField; i++) AutoLocateSpawnPoint(i);
     }
 
+
     //Event that works when u click on restart button in "level menu"
-    void OnRestartBtnClick(bool restart)
+    void OnRestartBtnClick()
     {
         spawnAreas.Clear();
         spawnPoints.Clear();
         staticBounds.Clear();
         OnAutoLocateClick();
     }
+
 
     private void Update()
     {
@@ -131,16 +131,9 @@ public class AutoAllocator : MonoBehaviour
         currentPointsAmmountOnTheField += 2;
     }
 
+    float Width() => 340;
 
-    float Width()
-    {
-        return 340;
-    }
-
-    float Height()
-    {
-        return 390;
-    }
+    float Height() => 390;
 
     void CreateSpawnPoint(int index)
     {

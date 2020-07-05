@@ -36,7 +36,7 @@ public class Controller : MonoBehaviour
 
 
     //Event that works when u click on restart button in "level menu"
-    void OnRestartBtnClick(bool restart)
+    void OnRestartBtnClick()
     {
         TreasureAmmount = OnLevelUI.initialSpawnPointsAmmountOnTheField;
 

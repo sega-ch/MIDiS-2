@@ -11,6 +11,7 @@ public class Joystic_touch : MonoBehaviour
     private MobileController mContr;
     void Start()
     {
+        OnLevelUI.OnRestartButtonClick += OnRestartBtnClick;
         ch_controller = GetComponent<CharacterController>();
         mContr = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
     }
@@ -20,7 +21,6 @@ public class Joystic_touch : MonoBehaviour
     {
         CharacterMove();
         GamingGravity();
-
     }
     private void CharacterMove() //Метод передвижения
     {
@@ -36,13 +36,19 @@ public class Joystic_touch : MonoBehaviour
         moveVector.y = gravityForce;
         ch_controller.Move(moveVector * Time.deltaTime);
     }
-    private void GamingGravity() //Метод пдения
+    private void GamingGravity() //Метод падения
     {
         if (!ch_controller.isGrounded)
             gravityForce -= 40f * Time.deltaTime;
         else
             gravityForce = -1f;
     }
+
+    void OnRestartBtnClick()
+    {
+        ch_controller.enabled = false;
+        transform.position = new Vector3(0, 4.4f, 0);
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+        ch_controller.enabled = true;
+    }
 }
-
-

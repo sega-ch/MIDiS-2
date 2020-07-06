@@ -21,11 +21,6 @@ public class OnLevelUI : MonoBehaviour
         Debug.Log($"{initialSpawnPointsAmmountOnTheField} - thats initial ammount of spawn points");
     }
 
-    private void Update()
-    {
-        //Debug.Log(Dog.transform.position);
-    }
-
     public void OnPauseBtnClick()
     {
         PausePnl.SetActive(true);

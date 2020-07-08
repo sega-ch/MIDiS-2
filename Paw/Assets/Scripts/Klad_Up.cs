@@ -58,7 +58,6 @@ public class Klad_Up : MonoBehaviour
                 Debug.Log("Золотая кость " + treasureEditor.goldenBone);
                 Debug.Log("Кошелек " + treasureEditor.purse);
                 Debug.Log("Амулет " + treasureEditor.amulet);
-                treasureEditor.goldenBone = false;
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
                 Invoke("Timef", 1.5f);//запускаем метод через две секунды (если примерно столько будет анимация)
             }

@@ -211,11 +211,14 @@ public class TreasureEditor : MonoBehaviour
             Debug.Log(nums[i]);
         }
         var ss = UnityEngine.Random.Range(0, 100);
+        Debug.Log(ss + "V massive");
+        Debug.Log(nums[ss] + "Kishki massiva");
+
         if (nums[ss] == 1)
         {
             return (1);
         }
-        if (ss == 2)
+        if (nums[ss] == 2)
         {
             return (2);
         }

@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\CatAI.cs" />
      <Compile Include="Assets\Scripts\CatGo.cs" />
      <Compile Include="Assets\Scripts\Controller.cs" />
+     <Compile Include="Assets\Scripts\GameplaySounds\DogSounds.cs" />
      <Compile Include="Assets\Scripts\Hozain_Give.cs" />
      <Compile Include="Assets\Scripts\Joystic_touch.cs" />
      <Compile Include="Assets\Scripts\Klad_Up.cs" />

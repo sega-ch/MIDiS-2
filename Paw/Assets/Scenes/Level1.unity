@@ -1181,6 +1181,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143880927}
   m_CullTransparentMesh: 0
+--- !u!1 &152651512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6127913967327551669, guid: e5b22029280010f458c744d2e9909c02,
+    type: 3}
+  m_PrefabInstance: {fileID: 7376400276958467844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &169218699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10038,6 +10044,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916219373}
   m_CullTransparentMesh: 0
+--- !u!1 &917299836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8526860061642942398, guid: e5b22029280010f458c744d2e9909c02,
+    type: 3}
+  m_PrefabInstance: {fileID: 7376400276958467844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920793946
 GameObject:
   m_ObjectHideFlags: 0
@@ -17393,6 +17405,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18014bed5648582439b86222fe33e5cb, type: 3}
+--- !u!1 &1445495660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5999631854183018149, guid: e5b22029280010f458c744d2e9909c02,
+    type: 3}
+  m_PrefabInstance: {fileID: 7376400276958467844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1455108072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17749,6 +17767,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 481554, guid: c6b7fb383a3534b039692b5485b6e739,
     type: 3}
   m_PrefabInstance: {fileID: 1506459356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1508316582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5680940313700107157, guid: e5b22029280010f458c744d2e9909c02,
+    type: 3}
+  m_PrefabInstance: {fileID: 7376400276958467844}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1513262658
 GameObject:
@@ -26834,11 +26858,41 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 985012059644925058, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018404751693158814, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4869425020479799060, guid: e5b22029280010f458c744d2e9909c02,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5341375821169446714, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: SpeedSound
+      value: 
+      objectReference: {fileID: 1445495660}
+    - target: {fileID: 5341375821169446714, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: PurseSound
+      value: 
+      objectReference: {fileID: 152651512}
+    - target: {fileID: 5341375821169446714, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: BoneSound
+      value: 
+      objectReference: {fileID: 917299836}
+    - target: {fileID: 5341375821169446714, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: GoldenBoneSound
+      value: 
+      objectReference: {fileID: 1508316582}
     - target: {fileID: 7376400276182670855, guid: e5b22029280010f458c744d2e9909c02,
         type: 3}
       propertyPath: m_IsActive
@@ -27000,6 +27054,21 @@ PrefabInstance:
       propertyPath: kg_Animator
       value: 
       objectReference: {fileID: 8325342868526222606}
+    - target: {fileID: 7986654845853972587, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669674604996886845, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669674604996886845, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b22029280010f458c744d2e9909c02, type: 3}
 --- !u!23 &7410749824901634704

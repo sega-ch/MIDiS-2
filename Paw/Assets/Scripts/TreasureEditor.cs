@@ -52,7 +52,7 @@ public class TreasureEditor : MonoBehaviour
     GameObject scoreText;
     public float pointMultiplier = 1;//множитель получаеых очков
     Controller Controller;
-   // public Text scoreTextTX;
+    // public Text scoreTextTX;
 
     private void Start()
     {
@@ -65,7 +65,7 @@ public class TreasureEditor : MonoBehaviour
     }
     public void Stages()
     {
-        if(toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
+        if (toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
         {
             Debug.Log("pervaya");
             byte sc = Stage(bone1, goldenBone1, purse1, amulet1);
@@ -177,7 +177,7 @@ public class TreasureEditor : MonoBehaviour
     public byte Stage(byte kosto4ka, byte zolotayaKosto4ka, byte koshelok, byte amylet)
     {
         int[] nums = new int[100];
-        
+
         if (kosto4ka != 0)
         {
             for (int i = 0; i < kosto4ka; i++)
@@ -225,7 +225,7 @@ public class TreasureEditor : MonoBehaviour
         if (nums[ss] == 3)
         {
             return (3);
-            
+
         }
         if (nums[ss] == 4)
         {

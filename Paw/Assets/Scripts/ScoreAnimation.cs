@@ -17,6 +17,12 @@ public class ScoreAnimation : MonoBehaviour
     public Animator kg_Animator;
     public GameObject scorePrefab;
     public static bool scoreGo = false;
+
+    public static event BoneSound ActivateBoneSound;
+    public delegate IEnumerator BoneSound();
+
+    public static event BoneGoldenSound ActivateGoldenBoneSound;
+    public delegate IEnumerator BoneGoldenSound();
     void Start()
     {
         data = GameObject.Find("Data");
@@ -37,10 +43,10 @@ public class ScoreAnimation : MonoBehaviour
             treasureEditor.goldenBone = false;
         }
     }
-    
+
     public void NachaloAnimacii()
     {
-
+        StartCoroutine(ActivateBoneSound());
         bone.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y, dog.transform.position.z + 12);
         bone.SetActive(true);
         k_Animator.SetBool("Yes", true);//Тригер анимации
@@ -49,7 +55,7 @@ public class ScoreAnimation : MonoBehaviour
     }
     public void NachaloAnimaciiGold()
     {
-
+        StartCoroutine(ActivateGoldenBoneSound());
         boneGold.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y, dog.transform.position.z + 12);
         boneGold.SetActive(true);
         kg_Animator.SetBool("Yes", true);//Тригер анимации

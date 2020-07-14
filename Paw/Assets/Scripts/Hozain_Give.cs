@@ -14,6 +14,9 @@ public class Hozain_Give : MonoBehaviour
     public GameObject purseOnTheDog;
     public GameObject hatOnTheDog;
     public GameObject strawhatOnTheDog;
+
+    public static event SpeedBoostSound ActivateSpeedBoostSound;
+    public delegate IEnumerator SpeedBoostSound();
     Controller Controller;
 
     private void Start()
@@ -37,6 +40,9 @@ public class Hozain_Give : MonoBehaviour
                 treasureEditor.score = treasureEditor.score + Convert.ToInt32((50 * treasureEditor.pointMultiplier));
                 Controller.TreasureAmmount--;
                 joystic_Touch.speedMove = joystic_Touch.speedMove + (joystic_Touch.speedMove / 2);
+
+                StartCoroutine(ActivateSpeedBoostSound());
+
                 Invoke("EndOfEffect", 8);
                 if (purseOnTheDog.activeSelf)
                 {

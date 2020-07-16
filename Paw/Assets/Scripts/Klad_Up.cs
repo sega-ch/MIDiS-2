@@ -30,11 +30,14 @@ public class Klad_Up : MonoBehaviour
     public static event PurseFound ActivatePurseSound;
     public delegate IEnumerator PurseFound();
     #endregion
+    Animator DogAnimator;
 
     //  [HideInInspector]
     public bool isCarringObject = false;
     private void Start()
     {
+        DogAnimator = GameObject.Find("dog_model_step4_animation_static").GetComponent<Animator>();
+
         dog = GameObject.Find("Dog");
         data = GameObject.Find("Data");
         treasureEditor = data.GetComponent<TreasureEditor>();
@@ -72,6 +75,10 @@ public class Klad_Up : MonoBehaviour
                 StartCoroutine(Digging());
 
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
+
+                DogAnimator.SetBool("Walking", false);
+                DogAnimator.SetBool("Digging", true);
+
                 Invoke("Timef", 1.5f);//запускаем метод через две секунды (если примерно столько будет анимация)
             }
         }
@@ -107,6 +114,8 @@ public class Klad_Up : MonoBehaviour
             dog.GetComponent<Joystic_touch>().speedMove += Controller.SpeedReduce;
             Controller.SpeedChanged = false;
         }
+
+        DogAnimator.SetBool("Digging", false);
     }
     public void purse()
     {

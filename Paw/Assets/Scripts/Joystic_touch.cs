@@ -9,8 +9,12 @@ public class Joystic_touch : MonoBehaviour
     private Vector3 moveVector;
     private CharacterController ch_controller;
     private MobileController mContr;
+    Animator DogAnimator;
+
+
     void Start()
     {
+        DogAnimator = GameObject.Find("dog_model_step4_animation_static").GetComponent<Animator>();
         OnLevelUI.OnRestartButtonClick += OnRestartBtnClick;
         ch_controller = GetComponent<CharacterController>();
         mContr = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
@@ -21,6 +25,7 @@ public class Joystic_touch : MonoBehaviour
     {
         CharacterMove();
         GamingGravity();
+        Moving();
     }
     private void CharacterMove() //Метод передвижения
     {
@@ -50,5 +55,27 @@ public class Joystic_touch : MonoBehaviour
         transform.position = new Vector3(0, 4.4f, 0);
         transform.rotation = Quaternion.Euler(Vector3.zero);
         ch_controller.enabled = true;
+    }
+
+
+    void Moving()
+    {
+
+        if ((moveVector.z != 0 || moveVector.x != 0) && speedMove >= 45)
+        {
+            DogAnimator.SetBool("Walking", false);
+            DogAnimator.SetBool("Running", true);
+        }
+        else if ((moveVector.z != 0 || moveVector.x != 0) && speedMove < 45)
+        {
+
+            DogAnimator.SetBool("Running", false);
+            DogAnimator.SetBool("Walking", true);
+        }
+        else
+        {
+            DogAnimator.SetBool("Walking", false);
+            DogAnimator.SetBool("Running", false);
+        }
     }
 }

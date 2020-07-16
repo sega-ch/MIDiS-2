@@ -27578,6 +27578,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
+    - target: {fileID: 7376400277603837353, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7376400277603837365, guid: e5b22029280010f458c744d2e9909c02,
         type: 3}
       propertyPath: m_LocalPosition.x

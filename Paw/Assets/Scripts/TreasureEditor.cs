@@ -78,7 +78,7 @@ public class TreasureEditor : MonoBehaviour
             if (sc == 2)
             {
                 goldenBone = true;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                score = score + Convert.ToInt32((60 * pointMultiplier));
                 Controller.TreasureAmmount--;
             }
             if (sc == 3)
@@ -106,7 +106,7 @@ public class TreasureEditor : MonoBehaviour
             {
                 goldenBone = true;
                 Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                score = score + Convert.ToInt32((60 * pointMultiplier));
             }
             if (sc == 3)
             {
@@ -133,7 +133,7 @@ public class TreasureEditor : MonoBehaviour
             {
                 goldenBone = true;
                 Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                score = score + Convert.ToInt32((60 * pointMultiplier));
             }
             if (sc == 3)
             {
@@ -160,7 +160,7 @@ public class TreasureEditor : MonoBehaviour
             {
                 goldenBone = true;
                 Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                score = score + Convert.ToInt32((60 * pointMultiplier));
             }
             if (sc == 3)
             {

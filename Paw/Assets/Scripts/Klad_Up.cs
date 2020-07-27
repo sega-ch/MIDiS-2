@@ -16,6 +16,7 @@ public class Klad_Up : MonoBehaviour
     public GameObject PurseOnTheDog;
     public GameObject HatOnTheDogLeather;
     public GameObject HatOnTheDogStraw;
+    public GameObject yamkaPrefab;
     Controller Controller;
     public static event ActionOnSpawnPoint OnSpawnPointFound;
     public delegate void ActionOnSpawnPoint(GameObject spawnPoint);
@@ -73,7 +74,7 @@ public class Klad_Up : MonoBehaviour
                 Debug.Log("Амулет " + treasureEditor.amulet);
 
                 StartCoroutine(Digging());
-
+                YamkaUP();
                 dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
 
                 DogAnimator.SetBool("Walking", false);
@@ -146,4 +147,9 @@ public class Klad_Up : MonoBehaviour
 
         }
     }
+    public void YamkaUP()
+    {
+        Instantiate(yamkaPrefab);
+    }
+
 }

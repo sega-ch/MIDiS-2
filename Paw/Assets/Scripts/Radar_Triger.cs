@@ -10,6 +10,10 @@ public class Radar_Triger : MonoBehaviour
     public GameObject radar;//полоска радара на которую реагирует скрипт
     Controller Controller;
     CatAI  CatAi;
+    public GameObject teni1;
+    public GameObject teni2;
+    public GameObject teni3;
+    public GameObject teni4;
     private void Start()
     {
         joystic_Touch = GameObject.Find("Dog").GetComponent<Joystic_touch>();
@@ -35,6 +39,7 @@ public class Radar_Triger : MonoBehaviour
                 if (!radar.activeSelf)
                 {
                     radar.SetActive(true);//активируем полоску радара
+                    //teni1.SetActive(true);teni2.SetActive(true);teni3.SetActive(true);teni4.SetActive(true);
                 }
             }
         }

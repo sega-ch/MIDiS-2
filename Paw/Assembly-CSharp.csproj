@@ -76,7 +76,6 @@
     <Compile Include="Assets\Scripts\Menu and UI\Menu.cs" />
     <Compile Include="Assets\Scripts\Menu and UI\OnLevelUI\OnLevelUI.cs" />
     <Compile Include="Assets\Scripts\MobileController.cs" />
-    <Compile Include="Assets\Scripts\MouseObj.cs" />
     <Compile Include="Assets\Scripts\ObeliskGive.cs" />
     <Compile Include="Assets\Scripts\PlacementScript\AutoAllocator.cs" />
     <Compile Include="Assets\Scripts\PrefabScore.cs" />

@@ -52,7 +52,7 @@ public class TreasureEditor : MonoBehaviour
     GameObject scoreText;
     public float pointMultiplier = 1;//множитель получаеых очков
     Controller Controller;
-    // public Text scoreTextTX;
+   // public Text scoreTextTX;
 
     private void Start()
     {
@@ -65,111 +65,119 @@ public class TreasureEditor : MonoBehaviour
     }
     public void Stages()
     {
-        if (toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
+        if(toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
         {
             Debug.Log("pervaya");
             byte sc = Stage(bone1, goldenBone1, purse1, amulet1);
-            switch (sc)
+            if (sc == 1)
             {
-                case 1:
-                    bone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((25 * pointMultiplier));
-                    return;
-                case 2:
-                    goldenBone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((60 * pointMultiplier));
-                    return;
-                case 3:
-                    purse = true;
-                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-                    return;
-                case 4:
-                    amulet = true;
-                    return;
+                bone = true;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
+                Controller.TreasureAmmount--;
             }
+            if (sc == 2)
+            {
+                goldenBone = true;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
+                Controller.TreasureAmmount--;
+            }
+            if (sc == 3)
+            {
+                purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+            }
+            if (sc == 4)
+            {
+                amulet = true;
+            }
+            return;
         }
         if (toStage2 <= Klad_Up.podnatoKladov && toStage3 > Klad_Up.podnatoKladov)
         {
             Debug.Log("vtoraya");
             byte sc = Stage(bone2, goldenBone2, purse2, amulet2);
-            switch (sc)
+            if (sc == 1)
             {
-                case 1:
-                    bone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((25 * pointMultiplier));
-                    return;
-                case 2:
-                    goldenBone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((60 * pointMultiplier));
-                    return;
-                case 3:
-                    purse = true;
-                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-                    return;
-                case 4:
-                    amulet = true;
-                    return;
+                bone = true;
+                Controller.TreasureAmmount--;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
             }
+            if (sc == 2)
+            {
+                goldenBone = true;
+                Controller.TreasureAmmount--;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
+            }
+            if (sc == 3)
+            {
+                purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+            }
+            if (sc == 4)
+            {
+                amulet = true;
+            }
+            return;
         }
         if (toStage3 <= Klad_Up.podnatoKladov && toStage4 > Klad_Up.podnatoKladov)
         {
             Debug.Log("tretiya");
             byte sc = Stage(bone3, goldenBone3, purse3, amulet3);
-            switch (sc)
+            if (sc == 1)
             {
-                case 1:
-                    bone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((25 * pointMultiplier));
-                    return;
-                case 2:
-                    goldenBone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((60 * pointMultiplier));
-                    return;
-                case 3:
-                    purse = true;
-                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-                    return;
-                case 4:
-                    amulet = true;
-                    return;
+                bone = true;
+                Controller.TreasureAmmount--;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
             }
+            if (sc == 2)
+            {
+                goldenBone = true;
+                Controller.TreasureAmmount--;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
+            }
+            if (sc == 3)
+            {
+                purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+            }
+            if (sc == 4)
+            {
+                amulet = true;
+            }
+            return;
         }
         if (toStage4 <= Klad_Up.podnatoKladov && toStage3 < Klad_Up.podnatoKladov)
         {
             Debug.Log("chertvotaya");
             byte sc = Stage(bone4, goldenBone4, purse4, amulet4);
-            switch (sc)
+            if (sc == 1)
             {
-                case 1:
-                    bone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((25 * pointMultiplier));
-                    return;
-                case 2:
-                    goldenBone = true;
-                    Controller.TreasureAmmount--;
-                    score = score + Convert.ToInt32((60 * pointMultiplier));
-                    return;
-                case 3:
-                    purse = true;
-                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-                    return;
-                case 4:
-                    amulet = true;
-                    return;
+                bone = true;
+                Controller.TreasureAmmount--;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
             }
+            if (sc == 2)
+            {
+                goldenBone = true;
+                Controller.TreasureAmmount--;
+                score = score + Convert.ToInt32((25 * pointMultiplier));
+            }
+            if (sc == 3)
+            {
+                purse = true;
+                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+            }
+            if (sc == 4)
+            {
+                amulet = true;
+            }
+            return;
         }
     }
     public byte Stage(byte kosto4ka, byte zolotayaKosto4ka, byte koshelok, byte amylet)
     {
         int[] nums = new int[100];
-
+        
         if (kosto4ka != 0)
         {
             for (int i = 0; i < kosto4ka; i++)
@@ -203,21 +211,18 @@ public class TreasureEditor : MonoBehaviour
             Debug.Log(nums[i]);
         }
         var ss = UnityEngine.Random.Range(0, 100);
-        Debug.Log(ss + "V massive");
-        Debug.Log(nums[ss] + "Kishki massiva");
-
         if (nums[ss] == 1)
         {
             return (1);
         }
-        if (nums[ss] == 2)
+        if (ss == 2)
         {
             return (2);
         }
         if (nums[ss] == 3)
         {
             return (3);
-
+            
         }
         if (nums[ss] == 4)
         {

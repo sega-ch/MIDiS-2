@@ -10,9 +10,11 @@ public class MobileController : MonoBehaviour,IDragHandler,IPointerUpHandler,IPo
     private Image joystick;
     private Vector2 inputVector;
 
+
     public virtual void OnPointerDown(PointerEventData ped)
     {
-            OnDrag(ped);
+        OnDrag(ped);
+
     }
     public virtual void OnPointerUp(PointerEventData ped)
     {
@@ -54,5 +56,4 @@ public class MobileController : MonoBehaviour,IDragHandler,IPointerUpHandler,IPo
         if (inputVector.y != 0) return inputVector.y;
         else return Input.GetAxis("Vertical");
     }
-
 }

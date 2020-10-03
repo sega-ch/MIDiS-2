@@ -14,10 +14,6 @@ public class Hozain_Give : MonoBehaviour
     public GameObject purseOnTheDog;
     public GameObject hatOnTheDog;
     public GameObject strawhatOnTheDog;
-    float speedMovDel;
-
-    public static event SpeedBoostSound ActivateSpeedBoostSound;
-    public delegate IEnumerator SpeedBoostSound();
     Controller Controller;
 
     private void Start()
@@ -40,11 +36,7 @@ public class Hozain_Give : MonoBehaviour
                 GameObject.Find("eat").GetComponent<Klad_Up>().isCarringObject = false;
                 treasureEditor.score = treasureEditor.score + Convert.ToInt32((50 * treasureEditor.pointMultiplier));
                 Controller.TreasureAmmount--;
-                speedMovDel = joystic_Touch.speedMove / 2;
-                joystic_Touch.speedMove = joystic_Touch.speedMove + speedMovDel;
-
-                StartCoroutine(ActivateSpeedBoostSound());
-
+                joystic_Touch.speedMove = joystic_Touch.speedMove + (joystic_Touch.speedMove / 2);
                 Invoke("EndOfEffect", 8);
                 if (purseOnTheDog.activeSelf)
                 {
@@ -71,6 +63,6 @@ public class Hozain_Give : MonoBehaviour
     }
     void EndOfEffect()
     {
-        joystic_Touch.speedMove = joystic_Touch.speedMove - speedMovDel;
+        joystic_Touch.speedMove = joystic_Touch.speedMove - (joystic_Touch.speedMove / 2);
     }
 }

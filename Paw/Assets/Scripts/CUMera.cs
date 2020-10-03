@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class CUMera : MonoBehaviour
 {
-    public static GameObject dog;
+    public GameObject dog;
     private Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
-        dog = GameObject.Find("Dog");
         offset = transform.position - dog.transform.position;
     }
 

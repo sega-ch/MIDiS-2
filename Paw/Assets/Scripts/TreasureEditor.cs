@@ -14,8 +14,6 @@ public class TreasureEditor : MonoBehaviour
     public byte goldenBone1;
     public byte purse1;
     public byte amulet1;
-    public byte sphera1;
-    public byte fybone1;
 
     [Header("Вторая стадия")]
     public int toStage2;
@@ -24,8 +22,6 @@ public class TreasureEditor : MonoBehaviour
     public byte goldenBone2;
     public byte purse2;
     public byte amulet2;
-    public byte sphera2;
-    public byte fybone2;
 
     [Header("Третья стадия")]
     public int toStage3;
@@ -34,8 +30,6 @@ public class TreasureEditor : MonoBehaviour
     public byte goldenBone3;
     public byte purse3;
     public byte amulet3;
-    public byte sphera3;
-    public byte fybone3;
 
     [Header("Четвертая стадия")]
     public int toStage4;
@@ -44,8 +38,6 @@ public class TreasureEditor : MonoBehaviour
     public byte goldenBone4;
     public byte purse4;
     public byte amulet4;
-    public byte sphera4;
-    public byte fybone4;
 
     [HideInInspector]
     public bool bone = false;
@@ -56,13 +48,8 @@ public class TreasureEditor : MonoBehaviour
     [HideInInspector]
     public bool amulet = false;
     [HideInInspector]
-    public bool sphera = false;
-    [HideInInspector]
-    public bool fybone = false;
-    [HideInInspector]
     public int score = 0;
     GameObject scoreText;
-    [Space]
     public float pointMultiplier = 1;//множитель получаеых очков
     Controller Controller;
     // public Text scoreTextTX;
@@ -81,145 +68,105 @@ public class TreasureEditor : MonoBehaviour
         if (toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
         {
             Debug.Log("pervaya");
-            byte sc = Stage(bone1, goldenBone1, purse1, amulet1, sphera1, fybone1);
-            if (sc == 1)
+            byte sc = Stage(bone1, goldenBone1, purse1, amulet1);
+            switch (sc)
             {
-                bone = true;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
-                Controller.TreasureAmmount--;
+                case 1:
+                    bone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((25 * pointMultiplier));
+                    return;
+                case 2:
+                    goldenBone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((60 * pointMultiplier));
+                    return;
+                case 3:
+                    purse = true;
+                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+                    return;
+                case 4:
+                    amulet = true;
+                    return;
             }
-            if (sc == 2)
-            {
-                goldenBone = true;
-                score = score + Convert.ToInt32((60 * pointMultiplier));
-                Controller.TreasureAmmount--;
-            }
-            if (sc == 3)
-            {
-                purse = true;
-                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-            }
-            if (sc == 4)
-            {
-                amulet = true;
-            }
-            if (sc == 5)
-            {
-                sphera = true;
-            }
-            if (sc == 6)
-            {
-                fybone = true;
-            }
-            return;
         }
         if (toStage2 <= Klad_Up.podnatoKladov && toStage3 > Klad_Up.podnatoKladov)
         {
             Debug.Log("vtoraya");
-            byte sc = Stage(bone2, goldenBone2, purse2, amulet2, sphera2, fybone2);
-            if (sc == 1)
+            byte sc = Stage(bone2, goldenBone2, purse2, amulet2);
+            switch (sc)
             {
-                bone = true;
-                Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                case 1:
+                    bone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((25 * pointMultiplier));
+                    return;
+                case 2:
+                    goldenBone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((60 * pointMultiplier));
+                    return;
+                case 3:
+                    purse = true;
+                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+                    return;
+                case 4:
+                    amulet = true;
+                    return;
             }
-            if (sc == 2)
-            {
-                goldenBone = true;
-                Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((60 * pointMultiplier));
-            }
-            if (sc == 3)
-            {
-                purse = true;
-                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-            }
-            if (sc == 4)
-            {
-                amulet = true;
-            }
-            if (sc == 5)
-            {
-                sphera = true;
-            }
-            if (sc == 6)
-            {
-                fybone = true;
-            }
-            return;
         }
         if (toStage3 <= Klad_Up.podnatoKladov && toStage4 > Klad_Up.podnatoKladov)
         {
             Debug.Log("tretiya");
-            byte sc = Stage(bone3, goldenBone3, purse3, amulet3, sphera3, fybone3);
-            if (sc == 1)
+            byte sc = Stage(bone3, goldenBone3, purse3, amulet3);
+            switch (sc)
             {
-                bone = true;
-                Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                case 1:
+                    bone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((25 * pointMultiplier));
+                    return;
+                case 2:
+                    goldenBone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((60 * pointMultiplier));
+                    return;
+                case 3:
+                    purse = true;
+                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+                    return;
+                case 4:
+                    amulet = true;
+                    return;
             }
-            if (sc == 2)
-            {
-                goldenBone = true;
-                Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((60 * pointMultiplier));
-            }
-            if (sc == 3)
-            {
-                purse = true;
-                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-            }
-            if (sc == 4)
-            {
-                amulet = true;
-            }
-            if (sc == 5)
-            {
-                sphera = true;
-            }
-            if (sc == 6)
-            {
-                fybone = true;
-            }
-            return;
         }
         if (toStage4 <= Klad_Up.podnatoKladov && toStage3 < Klad_Up.podnatoKladov)
         {
             Debug.Log("chertvotaya");
-            byte sc = Stage(bone4, goldenBone4, purse4, amulet4, sphera4, fybone4);
-            if (sc == 1)
+            byte sc = Stage(bone4, goldenBone4, purse4, amulet4);
+            switch (sc)
             {
-                bone = true;
-                Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((25 * pointMultiplier));
+                case 1:
+                    bone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((25 * pointMultiplier));
+                    return;
+                case 2:
+                    goldenBone = true;
+                    Controller.TreasureAmmount--;
+                    score = score + Convert.ToInt32((60 * pointMultiplier));
+                    return;
+                case 3:
+                    purse = true;
+                    GameObject.Find("eat").GetComponent<Klad_Up>().purse();
+                    return;
+                case 4:
+                    amulet = true;
+                    return;
             }
-            if (sc == 2)
-            {
-                goldenBone = true;
-                Controller.TreasureAmmount--;
-                score = score + Convert.ToInt32((60 * pointMultiplier));
-            }
-            if (sc == 3)
-            {
-                purse = true;
-                GameObject.Find("eat").GetComponent<Klad_Up>().purse();
-            }
-            if (sc == 4)
-            {
-                amulet = true;
-            }
-            if (sc == 5)
-            {
-                sphera = true;
-            }
-            if (sc == 6)
-            {
-                fybone = true;
-            }
-            return;
         }
     }
-    public byte Stage(byte kosto4ka, byte zolotayaKosto4ka, byte koshelok, byte amylet, byte sphera, byte fybone)
+    public byte Stage(byte kosto4ka, byte zolotayaKosto4ka, byte koshelok, byte amylet)
     {
         int[] nums = new int[100];
 
@@ -251,20 +198,6 @@ public class TreasureEditor : MonoBehaviour
                 nums[i] = 4;
             }
         }
-        if (sphera != 0)
-        {
-            for (int i = 0 + kosto4ka + zolotayaKosto4ka + koshelok + amylet; i < sphera + amylet + koshelok + zolotayaKosto4ka + kosto4ka; i++)
-            {
-                nums[i] = 5;
-            }
-        }
-        if (fybone != 0)
-        {
-            for (int i = 0 + kosto4ka + zolotayaKosto4ka + koshelok + amylet + sphera ; i < amylet + koshelok + zolotayaKosto4ka + kosto4ka + amylet +sphera +fybone; i++)
-            {
-                nums[i] = 6;
-            }
-        }
         for (int i = 0; i < 100; i++)
         {
             Debug.Log(nums[i]);
@@ -289,14 +222,6 @@ public class TreasureEditor : MonoBehaviour
         if (nums[ss] == 4)
         {
             return (4);
-        }
-        if (nums[ss] == 5)
-        {
-            return (5);
-        }
-        if (nums[ss] == 6)
-        {
-            return (6);
         }
 
         return 0;

@@ -7,9 +7,9 @@ public class Radar_Triger : MonoBehaviour
     Joystic_touch joystic_Touch;
     private GameObject data;
     TreasureEditor treasureEditor;
+    CatDisturb CatDisturb;
     public GameObject radar;//полоска радара на которую реагирует скрипт
     Controller Controller;
-    CatAI  CatAi;
     public GameObject teni1;
     public GameObject teni2;
     public GameObject teni3;
@@ -20,15 +20,12 @@ public class Radar_Triger : MonoBehaviour
         data = GameObject.Find("Data");
         treasureEditor = data.GetComponent<TreasureEditor>();
         Controller = GameObject.Find("Data").GetComponent<Controller>();
-        CatAi = GameObject.Find("Cat").GetComponent<CatAI>();
+        CatDisturb = GameObject.Find("CatDisturbCol").GetComponent<CatDisturb>();
+        
     }
     private void OnTriggerStay(Collider other)//если клад входит в зону действия радара
     {
-        if (other.gameObject.tag == "Cat")
-        {
-            CatAi.catScare = true;//пугаем кота
-        }
-        if (treasureEditor.purse == false && treasureEditor.amulet == false)//если не подобран кошель
+        if (treasureEditor.purse == false && treasureEditor.amulet == false && CatDisturb.catDistrub == false)//если не подобран кошель или амулет или кот мешает
         {
             if (other.gameObject.tag == "Klad")//проверяем что это клад по тегу
             {
@@ -39,7 +36,7 @@ public class Radar_Triger : MonoBehaviour
                 if (!radar.activeSelf)
                 {
                     radar.SetActive(true);//активируем полоску радара
-                    //teni1.SetActive(true);teni2.SetActive(true);teni3.SetActive(true);teni4.SetActive(true);
+                    teni1.SetActive(true);teni2.SetActive(true);teni3.SetActive(true);teni4.SetActive(true);//активируем тени
                 }
             }
         }

@@ -9341,6 +9341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34096ea9594dd5a41a9519d91f8730f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dog: {fileID: 781759149}
 --- !u!81 &804817055
 AudioListener:
   m_ObjectHideFlags: 0
@@ -31120,6 +31121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896449635625120150, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7376400275619597464, guid: e5b22029280010f458c744d2e9909c02,
         type: 3}

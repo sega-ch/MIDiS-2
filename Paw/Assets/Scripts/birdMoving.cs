@@ -5,26 +5,39 @@ using UnityEngine.UIElements;
 
 public class birdMoving : MonoBehaviour
 {
-    public GameObject bird;
-    public GameObject dog;
-
+    public float speed = 40.0f;
+    public float obastacleRange = 10.0f;
+    public GameObject ext;
+    Vector3 extVec;
+    private UnityEngine.AI.NavMeshAgent agent;
+    public bool birdScare = false;
     // Start is called before the first frame update
     void Start()
     {
-        //Определяем позицию чайки
-        Vector3 birdPosition = bird.transform.position;
-        Debug.Log("Позиция чайки = " + birdPosition);
-
-        //Определяем позицию собаки
-        Vector3 dogPosition = dog.transform.position;
-        Debug.Log("Позиция собаки = " + dogPosition);
+        extVec = ext.transform.position;
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-      //Двигаем чайку к собаке
-      Vector3 positionMoving = birdPosition
-            
+        if (birdScare == false)
+        {
+            transform.Translate(0, 0, speed * Time.deltaTime);
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
+            if (Physics.SphereCast(ray, 0.75f, out hit))
+            {
+                if (hit.distance < obastacleRange)
+                {
+                    float angle = UnityEngine.Random.Range(-100, 100);
+                    transform.Rotate(0, angle, 0);
+                }
+            }
+        }
+        if (birdScare == true)
+        {
+            agent.SetDestination(extVec);
+        }
     }
 }

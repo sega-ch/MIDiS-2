@@ -30,7 +30,7 @@ public class DogSounds : MonoBehaviour
         ScoreAnimation.ActivateBoneSound += OnBoneFound;
         ScoreAnimation.ActivateGoldenBoneSound += OnGoldenBoneFound;
     }*/
->>>>>>> 68d5b67ed8ae6761805a594f987671e632ecae7b
+//>>>>>>> 68d5b67ed8ae6761805a594f987671e632ecae7b
 
     IEnumerator SpeedBoostSound()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class RadarBonus : MonoBehaviour
 {
     [HideInInspector]
-    public bool poska1 = false;//тригеры от активаций полоски из скрипта "EnterTrigerRadar"
+    public bool poska1 = false; //тригеры от активаций полоски из скрипта "EnterTrigerRadar"
     [HideInInspector]
     public bool poska2 = false;
     [HideInInspector]
@@ -16,14 +16,14 @@ public class RadarBonus : MonoBehaviour
     public GameObject polrad1;
     public GameObject polrad2;
     public GameObject polrad3;
-    public GameObject polrad4;//объект полоски
+    public GameObject polrad4; //объект полоски
 
-    public GameObject shadowRad1;//тень полоски
+    public GameObject shadowRad1; //тень полоски
     public GameObject shadowRad2;
     public GameObject shadowRad3;
     public GameObject shadowRad4;
 
-    public GameObject rad4;//коллайдер 4 радара
+    public GameObject rad4; //коллайдер 4 радара
 
     public bool bonusOn;
 
@@ -40,13 +40,13 @@ public class RadarBonus : MonoBehaviour
     public void ChangePoskiRadara()
     {
         if (poska1 == true)
-        { 
+        {
             if (bonusOn)
             {
                 polrad4.SetActive(true);
             }
             else
-            polrad3.SetActive(true);
+                polrad3.SetActive(true);
             Debug.Log("c1");
         }
         if (poska2 == true)
@@ -56,7 +56,7 @@ public class RadarBonus : MonoBehaviour
                 polrad3.SetActive(true);
             }
             else
-            polrad2.SetActive(true);
+                polrad2.SetActive(true);
             Debug.Log("c2");
         }
         if (poska3 == true)
@@ -66,7 +66,7 @@ public class RadarBonus : MonoBehaviour
                 polrad2.SetActive(true);
             }
             else
-            polrad1.SetActive(true);
+                polrad1.SetActive(true);
             Debug.Log("c3");
         }
         if (poska4)
@@ -85,7 +85,7 @@ public class RadarBonus : MonoBehaviour
             Debug.Log("shf");
         }
 
-        if (!poska1)
+       /* if (!poska1)
         {
             if (bonusOn)
             {
@@ -115,7 +115,7 @@ public class RadarBonus : MonoBehaviour
         if (!poska4)
         {
             polrad1.SetActive(false);
-        }
+        }*/
 
     }
     public void ShadowRadOn()
@@ -129,9 +129,9 @@ public class RadarBonus : MonoBehaviour
         }
         else
         {
-        shadowRad1.SetActive(true);
-        shadowRad2.SetActive(true);
-        shadowRad3.SetActive(true);
+            shadowRad1.SetActive(true);
+            shadowRad2.SetActive(true);
+            shadowRad3.SetActive(true);
         }
     }
     public void ShadowRadOff()

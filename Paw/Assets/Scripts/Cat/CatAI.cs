@@ -19,6 +19,7 @@ public class CatAI : MonoBehaviour
 
     void Start()
     {
+        ext = GameObject.FindGameObjectWithTag("CatExit");
         extVec = ext.transform.position;
         agent = GetComponent<NavMeshAgent>();
     }

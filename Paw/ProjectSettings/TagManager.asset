@@ -16,6 +16,8 @@ TagManager:
   - Amulet
   - Cat
   - Dog
+  - CatExit
+  - Data
   layers:
   - Default
   - TransparentFX

@@ -18,17 +18,4 @@ public class SceneTransfer : MonoBehaviour
 
         TreasureAmmount = Controller.TreasureAmmount;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        try
-        {   
-            ScoreInt = System.Convert.ToInt32(Score.text);
-        }
-        catch (System.NullReferenceException)
-        {
-            
-        }
-    }
 }

@@ -15,6 +15,7 @@ TagManager:
   - Hat
   - Amulet
   - Cat
+  - Dog
   layers:
   - Default
   - TransparentFX

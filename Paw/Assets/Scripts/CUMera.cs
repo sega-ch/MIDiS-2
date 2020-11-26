@@ -9,6 +9,7 @@ public class CUMera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dog = GameObject.Find("Dog");
         offset = transform.position - dog.transform.position;
     }
 

@@ -25,6 +25,7 @@ public class ScoreAnimation : MonoBehaviour
     public delegate IEnumerator BoneGoldenSound();
     void Start()
     {
+        dog = GameObject.Find("Dog");
         data = GameObject.Find("Data");
         Controller = GameObject.Find("Data").GetComponent<Controller>();
         treasureEditor = data.GetComponent<TreasureEditor>();

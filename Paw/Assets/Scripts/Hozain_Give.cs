@@ -8,7 +8,7 @@ public class Hozain_Give : MonoBehaviour
     Joystic_touch joystic_Touch;
     private GameObject data;
     TreasureEditor treasureEditor;
-    GameObject dog;//псина
+    GameObject dog;
     public GameObject strelka1;
     public GameObject strelka2;
     public GameObject purseOnTheDog;

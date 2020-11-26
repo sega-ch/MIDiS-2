@@ -1,31 +1,33 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SocialPlatforms;
 
 public class CatAI : MonoBehaviour
 {
-    public float speed = 40.0f;
-    public float obastacleRange = 10.0f;
+    public float currentSpeed = 40f;
+    public float scareSpeed = 80f;
+    public float normalSpeed = 40f;
+    public float obastacleRange = 10f;
     public GameObject ext;
     Vector3 extVec;
     private NavMeshAgent agent;
     public bool catScare = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         extVec = ext.transform.position;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (catScare == false)
+        if (!catScare)
         {
-            transform.Translate(0, 0, speed * Time.deltaTime);
+            transform.Translate(0, 0, currentSpeed * Time.deltaTime);
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
             if (Physics.SphereCast(ray, 0.75f, out hit))
@@ -37,9 +39,22 @@ public class CatAI : MonoBehaviour
                 }
             }
         }
-        if (catScare == true)
-        {
-            agent.SetDestination(extVec);
-        }
+    }
+
+    public void ScareCat()
+	{
+        catScare = true;
+        currentSpeed = scareSpeed;
+        agent.speed = scareSpeed;
+        agent.acceleration = scareSpeed * 0.7f;
+        agent.SetDestination(extVec);
+    }
+
+    public void CalmCat()
+	{
+        catScare = false;
+        currentSpeed = normalSpeed;
+        agent.speed = normalSpeed;
+        agent.acceleration = normalSpeed;
     }
 }

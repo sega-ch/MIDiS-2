@@ -4,33 +4,39 @@ using UnityEngine;
 
 public class CatDisturb : MonoBehaviour
 {
-    public GameObject znak;
-    CatAI CatAi;
-    public bool catDistrub;
+    public GameObject mark;
+    CatAI CatAI;
+    public bool catDisturb;
+
     void Start()
     {
-        CatAi = GameObject.Find("Cat").GetComponent<CatAI>();
+        CatAI = GameObject.Find("Cat").GetComponent<CatAI>();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Cat")
+        if (other.gameObject.CompareTag("Cat"))
         {
-            ActiveZnak();
-            catDistrub = true;
+            ActivateMark();
+            catDisturb = true;
+            CatAI.ScareCat();
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        DizActiveZnak();
-        catDistrub = false;
-    }
-    void ActiveZnak()
+        DeactivateMark();
+		catDisturb = false;
+		CatAI.CalmCat();
+	}
+
+    void ActivateMark()
     {
-        znak.SetActive(true);
+        mark.SetActive(true);
     }
-    void DizActiveZnak()
+
+    void DeactivateMark()
     {
-        znak.SetActive(false);
+        mark.SetActive(false);
     }
 }

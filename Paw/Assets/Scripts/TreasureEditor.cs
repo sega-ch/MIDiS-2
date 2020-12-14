@@ -50,7 +50,7 @@ public class TreasureEditor : MonoBehaviour
     [HideInInspector]
     public int score = 0;
     GameObject scoreText;
-    public float pointMultiplier = 1;//множитель получаеых очков
+    public float pointMultiplier = 1; //множитель получаемых очков
     Controller Controller;
    // public Text scoreTextTX;
 
@@ -59,10 +59,12 @@ public class TreasureEditor : MonoBehaviour
         Controller = GameObject.Find("Data").GetComponent<Controller>();
         scoreText = GameObject.Find("Score");
     }
+
     private void Update()
     {
         scoreText.GetComponent<Text>().text = Convert.ToString(score);
     }
+
     public void Stages()
     {
         if(toStage1 <= Klad_Up.podnatoKladov && toStage2 > Klad_Up.podnatoKladov)
@@ -174,6 +176,7 @@ public class TreasureEditor : MonoBehaviour
             return;
         }
     }
+
     public byte Stage(byte kosto4ka, byte zolotayaKosto4ka, byte koshelok, byte amylet)
     {
         int[] nums = new int[100];
@@ -206,10 +209,10 @@ public class TreasureEditor : MonoBehaviour
                 nums[i] = 4;
             }
         }
-        for (int i = 0; i < 100; i++)
-        {
-            Debug.Log(nums[i]);
-        }
+        //for (int i = 0; i < 100; i++)
+        //{
+        //    Debug.Log(nums[i]);
+        //}
         var ss = UnityEngine.Random.Range(0, 100);
         if (nums[ss] == 1)
         {

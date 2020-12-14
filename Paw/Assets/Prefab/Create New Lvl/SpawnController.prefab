@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointPref: {fileID: 8037987403561620738, guid: bef8d50e28d5cca4296d24f7163840ca,
     type: 3}
+  areaWidth: 340
+  areaHeight: 390

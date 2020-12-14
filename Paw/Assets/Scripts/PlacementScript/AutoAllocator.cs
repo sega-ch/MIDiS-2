@@ -15,6 +15,24 @@ public class AutoAllocator : MonoBehaviour
     GameObject[] collisonObjects;
     List<Bounds> staticBounds = new List<Bounds>();
 
+    GameObject dog;
+    Vector3 debugVisionOffset = new Vector3(0, 1, 0);
+    Vector3 BetweenVector = new Vector3(65, 0, 65); // Сказали по стандарту 65 0 65
+
+    // Стандартные значения
+    [Space(10)]
+    [Header("Длина")]
+    public float areaWidth = 340;
+    [Header("Ширина")]
+    public float areaHeight = 390;
+    Vector3 spawnAreaCenter;
+    Vector3 spawnAreaSize;
+
+    // Тут просто задаём размеры уровня
+    // Дальше устанавливаем количество заспавненных кладов
+    // Задаём размеры места для спавна относительно объекта на карте
+    // Тут надо подумать как получить размеры этого самого объекта?
+
     #region Other Collisions
     // Bounds rock1ColliderBounds, rock2ColliderBounds, rock3ColliderBounds, tree1ColliderBounds;
     // GameObject rock1, rock2, rock3, tree1;
@@ -22,6 +40,13 @@ public class AutoAllocator : MonoBehaviour
 
     private void Start()
     {
+        spawnAreaCenter = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+        spawnAreaSize = new Vector3(Width(), 0, Height());
+
+        dog = GameObject.FindGameObjectWithTag("Dog");
+
+        InitializeLvlParameters();
+
         OnAutoLocateClick();
         Klad_Up.OnSpawnPointFound += OnSpawnPointFound;
         #region Сollision assigner
@@ -41,38 +66,94 @@ public class AutoAllocator : MonoBehaviour
         spawnPoints.Remove(spawnPoint);
     }
 
+    private void InitializeLvlParameters()
+	{
+        float lvlSquare = Width() * Height();
+        
+        if (lvlSquare >= 86000 && lvlSquare < 103000)
+		{
+            currentPointsAmmountOnTheField = 5;
+            BetweenVector = new Vector3(65, 0, 65);
+        }
+        else if (lvlSquare < 120000)
+        {
+            currentPointsAmmountOnTheField = 6;
+            BetweenVector = new Vector3(65, 0, 65);
+        }
+        else if (lvlSquare < 138000)
+        {
+            currentPointsAmmountOnTheField = 7;
+            BetweenVector = new Vector3(65, 0, 65);
+        }
+        else if (lvlSquare < 155000)
+        {
+            currentPointsAmmountOnTheField = 8;
+            BetweenVector = new Vector3(65, 0, 65);
+        }
+        else if (lvlSquare < 173000)
+        {
+            currentPointsAmmountOnTheField = 9;
+            BetweenVector = new Vector3(65, 0, 65);
+        }
+        else if (lvlSquare < 190000)
+        {
+            currentPointsAmmountOnTheField = 10;
+            BetweenVector = new Vector3(70, 0, 70);
+        }
+        else if (lvlSquare < 208000)
+        {
+            currentPointsAmmountOnTheField = 11;
+            BetweenVector = new Vector3(70, 0, 70);
+        }
+        else if (lvlSquare < 225000)
+        {
+            currentPointsAmmountOnTheField = 12;
+            BetweenVector = new Vector3(70, 0, 70);
+        }
+        else if (lvlSquare < 243000)
+        {
+            currentPointsAmmountOnTheField = 13;
+            BetweenVector = new Vector3(70, 0, 70);
+        }
+        else if (lvlSquare >= 243000)
+        {
+            currentPointsAmmountOnTheField = 14;
+            BetweenVector = new Vector3(70, 0, 70);
+        }
+
+        FindObjectOfType<Controller>().TreasureAmmount = currentPointsAmmountOnTheField;
+
+        Debug.Log("[!] Настройки уровня [!]");
+        Debug.Log("Площадь уровня: " + lvlSquare);
+        Debug.Log("Количество точек спавна: " + currentPointsAmmountOnTheField);
+        Debug.Log("Расстояние между точками: " + BetweenVector.x);
+    }
+
     public void OnAutoLocateClick()
     {
-        spawnAreas.Add(new Bounds(new Vector3(0, 0, 0), new Vector3(Width(), 0, Height())));
+        spawnAreas.Add(new Bounds(spawnAreaCenter, spawnAreaSize));
         //spawnAreas.Add(new Bounds(new Vector3(0, 3), new Vector3(Width(), 4)));
         //spawnAreas.Add(new Bounds(new Vector3(0, -3), new Vector3(Width(), 4)));
         //spawnAreas.Add(new Bounds(new Vector3(-4, 0), new Vector3(4, Height())));
         //spawnAreas.Add(new Bounds(new Vector3(4, 0), new Vector3(4, Height())));
-        spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, new Vector3(65, 0, 65));//collider.bounds;
+        spawnPointBounds = new Bounds(dog.transform.position, BetweenVector);//collider.bounds;
         MarkupSpawnAreas(spawnPointBounds.center);
-
-        // if (GameObject.Find("rad4") != null)
-        // {
-        //     spawnPointBounds = GameObject.Find("rad4").GetComponent<SphereCollider>().bounds;
-        //     MarkupSpawnAreas(spawnPointBounds.center);
-        // }
-
+        
         SetsStaticObjectsBounds();
 
-        currentPointsAmmountOnTheField = 6;
         spawnPoints = new List<GameObject>(currentPointsAmmountOnTheField);
         var collider = pointPref.GetComponent<CircleCollider2D>();
-        spawnPointBounds = new Bounds(new Vector3(0, 0, 0), new Vector3(65, 0, 65));//collider.bounds;
+        spawnPointBounds = new Bounds(Vector3.zero, BetweenVector);//collider.bounds;
         for (int i = 0; i < currentPointsAmmountOnTheField; i++) CreateSpawnPoint(i);
         for (int i = 0; i < currentPointsAmmountOnTheField; i++) AutoLocateSpawnPoint(i);
     }
 
     private void Update()
     {
-        if (currentPointsAmmountOnTheField == 2)
-        {
-            spawnAdditionalSpawnPoints();
-        }
+        //if (currentPointsAmmountOnTheField == 2)
+        //{
+        //    spawnAdditionalSpawnPoints();
+        //}
     }
 
     void SetsStaticObjectsBounds()
@@ -108,13 +189,13 @@ public class AutoAllocator : MonoBehaviour
 
         spawnAreas.AddRange(staticBounds);
 
-        spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, new Vector3(65, 0, 65));//collider.bounds;
+        spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, BetweenVector);//collider.bounds;
         MarkupSpawnAreas(spawnPointBounds.center);
         foreach (var oldSpawnPoint in spawnPoints)
         {
             MarkupSpawnAreas(oldSpawnPoint.transform.position);
         }
-        spawnPointBounds = new Bounds(new Vector3(0, 0, 0), new Vector3(65, 0, 65));
+        spawnPointBounds = new Bounds(Vector3.zero, BetweenVector);
         for (int i = 0; i < 2; i++) CreateSpawnPoint(i);
         for (int i = 2; i < 4; i++) AutoLocateSpawnPoint(i);
         currentPointsAmmountOnTheField += 2;
@@ -123,20 +204,18 @@ public class AutoAllocator : MonoBehaviour
 
     float Width()
     {
-        return 340;
+        return areaWidth;
     }
 
     float Height()
     {
-        return 390;
+        return areaHeight;
     }
 
     void CreateSpawnPoint(int index)
     {
         var spawnPoint = Instantiate(pointPref);
         spawnPoints.Add(spawnPoint);
-        //var collider = pointPref.GetComponent<CircleCollider2D>();
-        //spawnPointBounds = collider.bounds;
     }
 
     void AutoLocateSpawnPoint(int index)
@@ -144,8 +223,7 @@ public class AutoAllocator : MonoBehaviour
         SelectArea();
         var x = Random.Range(selectedArea.min.x, selectedArea.max.x);
         var z = Random.Range(selectedArea.min.z, selectedArea.max.z);
-        spawnPoints[index].transform.position = new Vector3(x, 0, z);
-        //Debug.Log(x + " :: " + y);
+        spawnPoints[index].transform.position = new Vector3(x, pointPref.transform.position.y, z);
         MarkupSpawnAreas(new Vector3(x, 0, z));
     }
 
@@ -185,7 +263,8 @@ public class AutoAllocator : MonoBehaviour
 
     void MarkupSpawnAreas(Vector3 position)
     {
-        float x = position.x, z = position.z;
+        float x = position.x;
+        float z = position.z;
         var occupiedArea = new Bounds(position, spawnPointBounds.size);
         var spawnAreasCopy = CopyList(spawnAreas);
         int c = 0;
@@ -240,21 +319,26 @@ public class AutoAllocator : MonoBehaviour
         //Debug.Log($"area created {subArea.min} {subArea.max}");
     }
 
-    //void OnDrawGizmos()
-    //{
-    //    var colors = new Color[]
-    //    {
-    //        Color.blue, Color.cyan, Color.green, Color.magenta, Color.red, Color.yellow, Color.black
-    //    };
-    //    int c = 0;
-    //    foreach (var area in spawnAreas)
-    //    {
-    //        Gizmos.color = colors[c];
-    //        var center = area.center * cellSize + new Vector3(bottomLeftCorner.x,
-    //            bottomLeftCorner.y) - Vector3.one * Random.Range(-0.2f, 0.2f);
-    //        Gizmos.DrawWireCube(center, area.size * cellSize);
-    //        c++;
-    //        if (c == colors.Length) c = 0;
-    //    }
-    //}
+	void OnDrawGizmos()
+	{
+		// Отрисовка мини полей для спавна
+		var colors = new Color[]
+		{
+			Color.blue, Color.cyan, Color.green, Color.magenta, Color.red, Color.yellow, Color.black
+		};
+		int c = 0;
+		foreach (var area in spawnAreas)
+		{
+			Gizmos.color = colors[c];
+			Gizmos.DrawWireCube(area.center, area.size);
+			c++;
+			if (c == colors.Length) c = 0;
+		}
+
+		// Отрисовка поля для засеивания
+		var debugCenter = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+		var debugSize = new Vector3(Width(), 0, Height()) + debugVisionOffset;
+		Gizmos.color = new Color(255, 0, 0, 0.5f);
+		Gizmos.DrawCube(debugCenter, debugSize);
+	}
 }

@@ -12,7 +12,7 @@ public class DogSounds : MonoBehaviour
     public GameObject BoneSound;
     public GameObject GoldenBoneSound;
     // Start is called before the first frame update
-    /*void Start()
+    void Start()
     {
         Hozain_Give.ActivateSpeedBoostSound += SpeedBoostSound;
         Klad_Up.Digging += OnDiging;
@@ -20,7 +20,7 @@ public class DogSounds : MonoBehaviour
         Klad_Up.ActivatePurseSound += OnPurseFound;
         ScoreAnimation.ActivateBoneSound += OnBoneFound;
         ScoreAnimation.ActivateGoldenBoneSound += OnGoldenBoneFound;
-    }*/
+    }
 
     IEnumerator SpeedBoostSound()
     {

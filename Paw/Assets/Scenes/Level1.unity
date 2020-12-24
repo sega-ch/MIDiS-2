@@ -27167,6 +27167,11 @@ PrefabInstance:
       propertyPath: kg_Animator
       value: 
       objectReference: {fileID: 8325342868526222606}
+    - target: {fileID: 7968633282316949799, guid: e5b22029280010f458c744d2e9909c02,
+        type: 3}
+      propertyPath: dog
+      value: 
+      objectReference: {fileID: 781759149}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b22029280010f458c744d2e9909c02, type: 3}
 --- !u!23 &7410749824901634704
@@ -27705,6 +27710,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248244004678158707, guid: 7f0c700dc82a1174881423b66cf0aa7c,
+        type: 3}
+      propertyPath: purse1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248244004678158707, guid: 7f0c700dc82a1174881423b66cf0aa7c,
+        type: 3}
+      propertyPath: bone1
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248244004678158707, guid: 7f0c700dc82a1174881423b66cf0aa7c,
+        type: 3}
+      propertyPath: purse2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248244004678158707, guid: 7f0c700dc82a1174881423b66cf0aa7c,
+        type: 3}
+      propertyPath: bone2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248244004678158707, guid: 7f0c700dc82a1174881423b66cf0aa7c,
+        type: 3}
+      propertyPath: goldenBone2
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f0c700dc82a1174881423b66cf0aa7c, type: 3}

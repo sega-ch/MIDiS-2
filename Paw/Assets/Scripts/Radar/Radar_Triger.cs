@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +38,7 @@ public class Radar_Triger : MonoBehaviour
                 }
             }
         }
-     }
+    }
 
     private void OnTriggerExit(Collider other)//если клад выходит из зоны действия радара
     {

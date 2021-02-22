@@ -13,9 +13,9 @@ public class SceneTransfer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Score = GameObject.Find("Score").GetComponent<Text>();
-        Controller = GameObject.Find("Data").GetComponent<Controller>();
+        //Score = GameObject.Find("Score").GetComponent<Text>();
+        //Controller = GameObject.Find("Data").GetComponent<Controller>();
 
-        TreasureAmmount = Controller.TreasureAmmount;
+        //TreasureAmmount = Controller.TreasureAmmount;
     }
 }

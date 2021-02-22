@@ -5,24 +5,28 @@ using UnityEngine;
 public class Strelka : MonoBehaviour
 {
     private GameObject data;
-    TreasureEditor treasureEditor;
+
+    TreasureController treasureController;
+
     public GameObject strelka1;
     public GameObject strelka2;
     public GameObject strelka3;
+
     GameObject hozain1;
     GameObject hozain2;
     GameObject obelisk;
     Transform trHozain1;
     Transform trHozain2;
     Transform trObelisk;
+
     private void Start()
     {
         data = GameObject.Find("Data");
-        treasureEditor = data.GetComponent<TreasureEditor>();
+        treasureController = FindObjectOfType<TreasureController>();
     }
     void Update()
     {
-        if (treasureEditor.purse == true)
+        if (treasureController.isCarryingPurse == true)
         {
             hozain1 = GameObject.FindWithTag("Hozain_1");
             trHozain1 = hozain1.transform;
@@ -33,7 +37,8 @@ public class Strelka : MonoBehaviour
             strelka1.SetActive(true);
             strelka2.SetActive(true);
         }
-        if (treasureEditor.amulet == true)
+
+        if (treasureController.isCarryingAmulet == true)
         {
             obelisk = GameObject.FindWithTag("Obelisk");
             trObelisk = obelisk.transform;

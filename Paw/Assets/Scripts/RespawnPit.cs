@@ -6,17 +6,5 @@ using UnityEngine.UIElements;
 
 public class MouseObj : MonoBehaviour
 {
-    public variable pit;
 
-
-
-    void Update()k
-    {
-
-    }
-    
-    AppearansePit()
-    {
-
-    }
 }

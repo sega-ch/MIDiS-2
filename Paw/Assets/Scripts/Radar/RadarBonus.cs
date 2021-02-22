@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class RadarBonus : MonoBehaviour
 {
+	public GameObject extraArrowObject;
+
     public GameObject[] radarArrows;
     public GameObject[] radarShadowArrows;
+
 	public Collider foundedTreasure;
 
 	public bool isBonusArrow;
@@ -35,7 +38,29 @@ public class RadarBonus : MonoBehaviour
 		} 
 	}
 
-	public bool IsFounded(Collider check)
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.B))
+			ActivateExtraArrow();
+		if (Input.GetKeyDown(KeyCode.N))
+			DeActivateExtraArrow();
+	}
+
+	public void ActivateExtraArrow()
+    {
+		isBonusArrow = true;
+		maxArrows = 4;
+		extraArrowObject.SetActive(true);
+	}
+	
+	public void DeActivateExtraArrow()
+    {
+		isBonusArrow = false;
+		maxArrows = 3;
+		extraArrowObject.SetActive(false);
+	}
+
+    public bool IsFounded(Collider check)
 	{
 		if (foundedTreasure == null)
 			foundedTreasure = check;	
@@ -49,7 +74,7 @@ public class RadarBonus : MonoBehaviour
 	public void NullProperties()
 	{
 		foundedTreasure = null;
-		arrowsCounter = 0;
+		ArrowsCounter = 0;
 		HideAllArrows();
 		HideAllShadows();
 	}

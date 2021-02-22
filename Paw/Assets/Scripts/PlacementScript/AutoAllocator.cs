@@ -1,23 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class AutoAllocator : MonoBehaviour
 {
-    public GameObject pointPref;
-    List<Bounds> spawnAreas = new List<Bounds>();
-    Bounds selectedArea;
-    bool allignAtField;
-    List<GameObject> spawnPoints;
-    Bounds spawnPointBounds;
-    public static int currentPointsAmmountOnTheField;
-    GameObject[] collisonObjects;
-    List<Bounds> staticBounds = new List<Bounds>();
+    private TreasureAllocator treasureAllocator;
 
-    GameObject dog;
-    Vector3 debugVisionOffset = new Vector3(0, 1, 0);
-    Vector3 BetweenVector = new Vector3(65, 0, 65); // Сказали по стандарту 65 0 65
+    [Header("Префаб точки с сокровищем")]
+    public GameObject pointPref;
 
     // Стандартные значения
     [Space(10)]
@@ -25,21 +15,33 @@ public class AutoAllocator : MonoBehaviour
     public float areaWidth = 340;
     [Header("Ширина")]
     public float areaHeight = 390;
+
+    public static int currentPointsAmmountOnTheField; // Текущее количество точек на уровне
+    public static int maximumPointsOnTheField;        // Максимум точек в один момент
+
+    List<Bounds> spawnAreas = new List<Bounds>();
+    
+    Bounds selectedArea;
+    bool allignAtField;
+    
+    List<GameObject> spawnPoints;
+    Bounds spawnPointBounds;
+    
+    GameObject[] collisonObjects;
+    List<Bounds> staticBounds = new List<Bounds>();
+
+    GameObject dog;
+    
+    Vector3 debugVisionOffset = new Vector3(0, 1, 0);
+    Vector3 BetweenVector = new Vector3(65, 0, 65); // Сказали по стандарту 65 0 65
+
     Vector3 spawnAreaCenter;
     Vector3 spawnAreaSize;
 
-    // Тут просто задаём размеры уровня
-    // Дальше устанавливаем количество заспавненных кладов
-    // Задаём размеры места для спавна относительно объекта на карте
-    // Тут надо подумать как получить размеры этого самого объекта?
-
-    #region Other Collisions
-    // Bounds rock1ColliderBounds, rock2ColliderBounds, rock3ColliderBounds, tree1ColliderBounds;
-    // GameObject rock1, rock2, rock3, tree1;
-    #endregion
-
     private void Start()
     {
+        treasureAllocator = FindObjectOfType<TreasureAllocator>();
+
         spawnAreaCenter = new Vector3(this.transform.position.x, 0, this.transform.position.z);
         spawnAreaSize = new Vector3(Width(), 0, Height());
 
@@ -47,23 +49,30 @@ public class AutoAllocator : MonoBehaviour
 
         InitializeLvlParameters();
 
+        float start = Time.realtimeSinceStartup;
+        Debug.Log("START GENERATING: " + start);
         OnAutoLocateClick();
-        Klad_Up.OnSpawnPointFound += OnSpawnPointFound;
-        #region Сollision assigner
-        // tree1 = GameObject.Find("TreeTrunk");
-        // rock1 = GameObject.Find("Cube (7)");
-        // rock2 = GameObject.Find("Cube (8)");
-        // rock3 = GameObject.Find("Cube (5)");
+        float end = Time.realtimeSinceStartup;
+        Debug.Log("END GENERATING: " + end);
+        Debug.Log("Passed time: " + (end - start));
 
-        // rock1ColliderBounds = rock1.GetComponent<BoxCollider>().bounds;
-        // rock2ColliderBounds = rock2.GetComponent<BoxCollider>().bounds;
-        // rock3ColliderBounds = rock3.GetComponent<BoxCollider>().bounds;
-        // tree1ColliderBounds = tree1.GetComponent<BoxCollider>().bounds;
-        #endregion
+        Klad_Up.OnSpawnPointFound += OnSpawnPointFound;
     }
 
     void OnSpawnPointFound(GameObject spawnPoint){
+        currentPointsAmmountOnTheField--;
         spawnPoints.Remove(spawnPoint);
+
+        if (currentPointsAmmountOnTheField == 2)
+        {
+            spawnAdditionalSpawnPoints();
+        }
+        
+        if (currentPointsAmmountOnTheField == 0)
+        {
+            // Смена уровня или ещё что-то такое
+            Debug.Log("Получается КЛАДЫ ЗАКОНЧИЛИСЬ :(");
+        }
     }
 
     private void InitializeLvlParameters()
@@ -73,55 +82,63 @@ public class AutoAllocator : MonoBehaviour
         if (lvlSquare >= 86000 && lvlSquare < 103000)
 		{
             currentPointsAmmountOnTheField = 5;
+            maximumPointsOnTheField = 5;
             BetweenVector = new Vector3(65, 0, 65);
         }
         else if (lvlSquare < 120000)
         {
             currentPointsAmmountOnTheField = 6;
+            maximumPointsOnTheField = 6;
             BetweenVector = new Vector3(65, 0, 65);
         }
         else if (lvlSquare < 138000)
         {
             currentPointsAmmountOnTheField = 7;
+            maximumPointsOnTheField = 7;
             BetweenVector = new Vector3(65, 0, 65);
         }
         else if (lvlSquare < 155000)
         {
             currentPointsAmmountOnTheField = 8;
+            maximumPointsOnTheField = 8;
             BetweenVector = new Vector3(65, 0, 65);
         }
         else if (lvlSquare < 173000)
         {
             currentPointsAmmountOnTheField = 9;
+            maximumPointsOnTheField = 9;
             BetweenVector = new Vector3(65, 0, 65);
         }
         else if (lvlSquare < 190000)
         {
             currentPointsAmmountOnTheField = 10;
+            maximumPointsOnTheField = 10;
             BetweenVector = new Vector3(70, 0, 70);
         }
         else if (lvlSquare < 208000)
         {
             currentPointsAmmountOnTheField = 11;
+            maximumPointsOnTheField = 11;
             BetweenVector = new Vector3(70, 0, 70);
         }
         else if (lvlSquare < 225000)
         {
             currentPointsAmmountOnTheField = 12;
+            maximumPointsOnTheField = 12;
             BetweenVector = new Vector3(70, 0, 70);
         }
         else if (lvlSquare < 243000)
         {
             currentPointsAmmountOnTheField = 13;
+            maximumPointsOnTheField = 13;
             BetweenVector = new Vector3(70, 0, 70);
         }
         else if (lvlSquare >= 243000)
         {
             currentPointsAmmountOnTheField = 14;
+            maximumPointsOnTheField = 14;
             BetweenVector = new Vector3(70, 0, 70);
         }
-
-        FindObjectOfType<Controller>().TreasureAmmount = currentPointsAmmountOnTheField;
 
         Debug.Log("[!] Настройки уровня [!]");
         Debug.Log("Площадь уровня: " + lvlSquare);
@@ -132,51 +149,34 @@ public class AutoAllocator : MonoBehaviour
     public void OnAutoLocateClick()
     {
         spawnAreas.Add(new Bounds(spawnAreaCenter, spawnAreaSize));
-        //spawnAreas.Add(new Bounds(new Vector3(0, 3), new Vector3(Width(), 4)));
-        //spawnAreas.Add(new Bounds(new Vector3(0, -3), new Vector3(Width(), 4)));
-        //spawnAreas.Add(new Bounds(new Vector3(-4, 0), new Vector3(4, Height())));
-        //spawnAreas.Add(new Bounds(new Vector3(4, 0), new Vector3(4, Height())));
-        spawnPointBounds = new Bounds(dog.transform.position, BetweenVector);//collider.bounds;
+        spawnPointBounds = new Bounds(dog.transform.position, BetweenVector);
+
         MarkupSpawnAreas(spawnPointBounds.center);
-        
+
         SetsStaticObjectsBounds();
 
         spawnPoints = new List<GameObject>(currentPointsAmmountOnTheField);
-        var collider = pointPref.GetComponent<CircleCollider2D>();
-        spawnPointBounds = new Bounds(Vector3.zero, BetweenVector);//collider.bounds;
-        for (int i = 0; i < currentPointsAmmountOnTheField; i++) CreateSpawnPoint(i);
-        for (int i = 0; i < currentPointsAmmountOnTheField; i++) AutoLocateSpawnPoint(i);
-    }
 
-    private void Update()
-    {
-        //if (currentPointsAmmountOnTheField == 2)
-        //{
-        //    spawnAdditionalSpawnPoints();
-        //}
+        var collider = pointPref.GetComponent<CircleCollider2D>();
+
+        spawnPointBounds = new Bounds(Vector3.zero, BetweenVector);
+
+        for (int i = 0; i < currentPointsAmmountOnTheField; i++)
+        {
+            CreateSpawnPoint(); 
+            AutoLocateSpawnPoint(i);
+        }
     }
 
     void SetsStaticObjectsBounds()
     {
-        #region in case if something will go wrong with an array
-        // spawnPointBounds = new Bounds(rock1ColliderBounds.center, rock1ColliderBounds.size);//collider.bounds;
-        // MarkupSpawnAreas(spawnPointBounds.center);
-
-        // spawnPointBounds = new Bounds(rock2ColliderBounds.center, rock2ColliderBounds.size);//collider.bounds;
-        // MarkupSpawnAreas(spawnPointBounds.center);
-
-        // spawnPointBounds = new Bounds(rock3ColliderBounds.center, rock3ColliderBounds.size);//collider.bounds;
-        // MarkupSpawnAreas(spawnPointBounds.center);
-
-        // spawnPointBounds = new Bounds(tree1ColliderBounds.center, tree1ColliderBounds.size);//collider.bounds;
-        // MarkupSpawnAreas(spawnPointBounds.center);
-        #endregion
-
         collisonObjects = GameObject.FindGameObjectsWithTag("CollisionObject");
+
         for (int i = 0; i < collisonObjects.Length; i++)
         {
             spawnPointBounds = new Bounds(collisonObjects[i].GetComponent<BoxCollider>().bounds.center,
-                collisonObjects[i].GetComponent<BoxCollider>().bounds.size);//collider.bounds;
+                collisonObjects[i].GetComponent<BoxCollider>().bounds.size);
+
             MarkupSpawnAreas(spawnPointBounds.center);
         }
 
@@ -185,22 +185,45 @@ public class AutoAllocator : MonoBehaviour
 
     void spawnAdditionalSpawnPoints()
     {
-        spawnAreas.Clear();
+        Debug.Log("[ДОСЕИВАНИЕ]");
+        float start = Time.realtimeSinceStartup;
+        Debug.Log("START: " + start);
 
+        spawnAreas.Clear();
         spawnAreas.AddRange(staticBounds);
 
-        spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, BetweenVector);//collider.bounds;
+        spawnPointBounds = new Bounds(GameObject.Find("Dog").transform.position, BetweenVector);
         MarkupSpawnAreas(spawnPointBounds.center);
         foreach (var oldSpawnPoint in spawnPoints)
         {
             MarkupSpawnAreas(oldSpawnPoint.transform.position);
         }
-        spawnPointBounds = new Bounds(Vector3.zero, BetweenVector);
-        for (int i = 0; i < 2; i++) CreateSpawnPoint(i);
-        for (int i = 2; i < 4; i++) AutoLocateSpawnPoint(i);
-        currentPointsAmmountOnTheField += 2;
-    }
 
+        int additionalAmount = 4;
+
+        if (currentPointsAmmountOnTheField + additionalAmount >= treasureAllocator.storageCount)
+        {
+            additionalAmount = treasureAllocator.storageCount - currentPointsAmmountOnTheField;
+        }
+
+        for (int i = 2; i < 2 + additionalAmount; i++)
+        {
+            CreateSpawnPoint();
+            AutoLocateSpawnPoint(i);
+        }
+        currentPointsAmmountOnTheField += additionalAmount;
+
+        // Проверяем видит ли игрок все клады
+        if (FindObjectOfType<TreasureController>().isShowingThrough)
+            FindObjectOfType<TreasureAllocator>().ShowAllTreasures();
+
+        Debug.Log("Засеяли " + additionalAmount + " шт. клада");
+        Debug.Log("На поле " + currentPointsAmmountOnTheField + " точек");
+
+        float end = Time.realtimeSinceStartup;
+        Debug.Log("END: " + end);
+        Debug.Log("Passed time: " + (end - start));
+    }
 
     float Width()
     {
@@ -212,7 +235,7 @@ public class AutoAllocator : MonoBehaviour
         return areaHeight;
     }
 
-    void CreateSpawnPoint(int index)
+    void CreateSpawnPoint()
     {
         var spawnPoint = Instantiate(pointPref);
         spawnPoints.Add(spawnPoint);
@@ -221,8 +244,8 @@ public class AutoAllocator : MonoBehaviour
     void AutoLocateSpawnPoint(int index)
     {
         SelectArea();
-        var x = Random.Range(selectedArea.min.x, selectedArea.max.x);
-        var z = Random.Range(selectedArea.min.z, selectedArea.max.z);
+        var x = UnityEngine.Random.Range(selectedArea.min.x, selectedArea.max.x);
+        var z = UnityEngine.Random.Range(selectedArea.min.z, selectedArea.max.z);
         spawnPoints[index].transform.position = new Vector3(x, pointPref.transform.position.y, z);
         MarkupSpawnAreas(new Vector3(x, 0, z));
     }
@@ -232,7 +255,7 @@ public class AutoAllocator : MonoBehaviour
         var areasWorkingList = CopyList(spawnAreas);
         for (int i = 0; i < 100; i++)
         {
-            var areaNum = Random.Range(0, areasWorkingList.Count);
+            var areaNum = UnityEngine.Random.Range(0, areasWorkingList.Count);
             var randomArea = areasWorkingList[areaNum];
 
             selectedArea = new Bounds(randomArea.center, randomArea.size);
@@ -260,19 +283,23 @@ public class AutoAllocator : MonoBehaviour
         return true;
     }
 
-
     void MarkupSpawnAreas(Vector3 position)
     {
         float x = position.x;
         float z = position.z;
+
         var occupiedArea = new Bounds(position, spawnPointBounds.size);
         var spawnAreasCopy = CopyList(spawnAreas);
         int c = 0;
+
         for (int i = 0; i < spawnAreasCopy.Count; i++)
         {
             var area = spawnAreasCopy[i];
+
             if (!AreBoundsOverlap(area, occupiedArea)) continue;
+
             spawnAreas.Remove(area);
+
             SplitSpawnArea(area, occupiedArea);
 
             c++; if (c > 200000) break;
@@ -326,7 +353,9 @@ public class AutoAllocator : MonoBehaviour
 		{
 			Color.blue, Color.cyan, Color.green, Color.magenta, Color.red, Color.yellow, Color.black
 		};
+
 		int c = 0;
+
 		foreach (var area in spawnAreas)
 		{
 			Gizmos.color = colors[c];

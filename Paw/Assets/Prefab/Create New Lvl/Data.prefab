@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8248244004678158706}
-  - component: {fileID: 8248244004678158707}
-  - component: {fileID: 8248244004678158709}
   - component: {fileID: 8248244004678158708}
   m_Layer: 0
   m_Name: Data
@@ -26,66 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8248244004678158704}
-  m_LocalRotation: {x: 0.48736724, y: -0.15866227, z: 0.10995464, w: 0.85159236}
+  m_LocalRotation: {x: 0.4873668, y: -0.158664, z: 0.109955974, w: 0.85159206}
   m_LocalPosition: {x: -3.7, y: 168.5, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8248244004678158707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8248244004678158704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d890f0b9a7a8dd049958a74ef76b67b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toStage1: 1
-  bone1: 0
-  goldenBone1: 0
-  purse1: 100
-  amulet1: 0
-  toStage2: 4
-  bone2: 0
-  goldenBone2: 0
-  purse2: 100
-  amulet2: 0
-  toStage3: 6
-  bone3: 75
-  goldenBone3: 15
-  purse3: 10
-  amulet3: 0
-  toStage4: 8
-  bone4: 60
-  goldenBone4: 20
-  purse4: 20
-  amulet4: 0
-  bone: 0
-  goldenBone: 0
-  purse: 0
-  amulet: 0
-  score: 0
-  pointMultiplier: 1
---- !u!114 &8248244004678158709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8248244004678158704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c0eebf95adf7fe4aa87211de4a583d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedChanged: 0
-  SpeedReduce: 15
-  TreasureAmmount: 5
+  m_LocalEulerAnglesHint: {x: 59.879, y: -18.961, z: 3.7270002}
 --- !u!114 &8248244004678158708
 MonoBehaviour:
   m_ObjectHideFlags: 0

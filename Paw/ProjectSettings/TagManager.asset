@@ -18,6 +18,8 @@ TagManager:
   - Dog
   - CatExit
   - Data
+  - Obelisk
+  - WorldLevelObject
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - 
   - 
   - ca
-  - 
+  - Treasure
   - 
   - 
   - 
@@ -54,4 +56,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Treasure
+    uniqueID: 3975030003
     locked: 0

@@ -60,10 +60,10 @@ public class TreasureEditor : MonoBehaviour
         scoreText = GameObject.Find("Score");
     }
 
-    private void Update()
-    {
-        scoreText.GetComponent<Text>().text = Convert.ToString(score);
-    }
+    //private void Update()
+    //{
+    //    scoreText.GetComponent<Text>().text = Convert.ToString(score);
+    //}
 
     public void Stages()
     {

@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class EnterTrigerRadar : MonoBehaviour
 {
-    Joystic_touch joystic_Touch;
     private GameObject data;
-    TreasureEditor treasureEditor;
+
+    Joystic_touch joystic_Touch;
     CatDisturb CatDisturb;
-    Controller Controller;
     RadarBonus RadarBonus;
+
+    private TreasureController treasureController;
 
     void Start()
     {
         joystic_Touch = GameObject.Find("Dog").GetComponent<Joystic_touch>();
         data = GameObject.Find("Data");
         RadarBonus = GameObject.Find("Dog").GetComponent<RadarBonus>();
-        treasureEditor = data.GetComponent<TreasureEditor>();
-        Controller = data.GetComponent<Controller>();
         CatDisturb = GameObject.Find("CatDisturbCol").GetComponent<CatDisturb>();
+        treasureController = FindObjectOfType<TreasureController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (treasureEditor.purse == false && treasureEditor.amulet == false && CatDisturb.catDisturb == false) 
+        if (treasureController.isCarryingPurse == false && treasureController.isCarryingAmulet == false && CatDisturb.catDisturb == false) 
         {
             if (other.gameObject.tag == "Klad")
             {
                 if (RadarBonus.IsFounded(other))
                 {
-                    if (!Controller.SpeedChanged)
+                    if (!treasureController.SpeedChanged)
                     {
-                        joystic_Touch.speedMove -= Controller.SpeedReduce;
-                        Controller.SpeedChanged = true;
+                        joystic_Touch.speedMove -= treasureController.SpeedReduce;
+                        treasureController.SpeedChanged = true;
                     }
 
                     RadarBonus.ArrowsCounter++;
@@ -48,10 +48,10 @@ public class EnterTrigerRadar : MonoBehaviour
         {
             if (RadarBonus.IsFounded(other))
             {
-                if (Controller.SpeedChanged)
+                if (treasureController.SpeedChanged)
                 {
-                    joystic_Touch.speedMove += Controller.SpeedReduce;
-                    Controller.SpeedChanged = false;
+                    joystic_Touch.speedMove += treasureController.SpeedReduce;
+                    treasureController.SpeedChanged = false;
                 }
 
                 RadarBonus.ArrowsCounter--;

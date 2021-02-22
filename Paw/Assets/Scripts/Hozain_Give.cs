@@ -6,43 +6,49 @@ using UnityEngine;
 public class Hozain_Give : MonoBehaviour
 {
     Joystic_touch joystic_Touch;
+
     private GameObject data;
-    TreasureEditor treasureEditor;
+
     GameObject dog;
+
     public GameObject strelka1;
     public GameObject strelka2;
     public GameObject purseOnTheDog;
     public GameObject hatOnTheDog;
     public GameObject strawhatOnTheDog;
+
+    private TreasureController treasureController;
+
     public static event SpeedBoostSound ActivateSpeedBoostSound;
+
     public delegate IEnumerator SpeedBoostSound();
+
     float canstSpeedDog;
-    Controller Controller;
 
     private void Start()
     {
-        Controller = GameObject.Find("Data").GetComponent<Controller>();
         dog = GameObject.Find("Dog");
         data = GameObject.Find("Data");
         joystic_Touch = GameObject.Find("Dog").GetComponent<Joystic_touch>();
-        treasureEditor = data.GetComponent<TreasureEditor>();
         canstSpeedDog = joystic_Touch.speedMove;
+        treasureController = FindObjectOfType<TreasureController>();
     }
-    private void OnTriggerEnter(Collider other)//зона на которой происходт потбор предмета
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (treasureEditor.purse == true)
+        if (treasureController.isCarryingPurse == true)
         {
-            if (other.gameObject.tag == "Hozain_1" || other.gameObject.tag == "Hozain_2")//проверяем этот ли объект по тегу
+            if (other.gameObject.tag == "Hozain_1" || other.gameObject.tag == "Hozain_2")
             {
-                Debug.Log("Есть пробитие!");
-                dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
-                treasureEditor.purse = false;
-                GameObject.Find("eat").GetComponent<Klad_Up>().isCarringObject = false;
-                treasureEditor.score = treasureEditor.score + Convert.ToInt32((50 * treasureEditor.pointMultiplier));
-                Controller.TreasureAmmount--;
+                treasureController.isCarryingPurse = false;
+                dog.gameObject.GetComponent<Joystic_touch>().enabled = false;
+                
+                treasureController.AddScore(50);
                 joystic_Touch.speedMove = joystic_Touch.speedMove + (canstSpeedDog / 2);
+
                 StartCoroutine(ActivateSpeedBoostSound());
                 Invoke("EndOfEffect", 8);
+
                 if (purseOnTheDog.activeSelf)
                 {
                     purseOnTheDog.SetActive(false);
@@ -55,17 +61,21 @@ public class Hozain_Give : MonoBehaviour
                 {
                     strawhatOnTheDog.SetActive(false);
                 }
+
                 GameObject.Find("eat").GetComponent<Klad_Up>().isCarringObject = false;
+
                 strelka1.SetActive(false);
                 strelka2.SetActive(false);
+
                 Invoke("TimeT", 0.5f);
             }
         }
     }
-    void TimeT()//мто что мы запускаем через время
+    void TimeT()
     {
         dog.gameObject.GetComponent<Joystic_touch>().enabled = true;
     }
+
     void EndOfEffect()
     {
         joystic_Touch.speedMove = joystic_Touch.speedMove - (canstSpeedDog / 2);

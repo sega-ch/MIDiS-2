@@ -101,8 +101,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3195951087549653272}
-  - component: {fileID: 7259736445828742873}
-  - component: {fileID: 1950359828396628898}
   m_Layer: 0
   m_Name: obelisk
   m_TagString: CollisionObject
@@ -117,7 +115,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873802336719950603}
-  m_LocalRotation: {x: -0, y: 0.9545039, z: -0, w: -0.29819873}
+  m_LocalRotation: {x: 0, y: 0.95450366, z: -0, w: -0.2981995}
   m_LocalPosition: {x: 151.3, y: -1.8999996, z: -24.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -129,32 +127,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 214.69899, z: 0}
---- !u!65 &7259736445828742873
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873802336719950603}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 11.170152, y: 38.710518, z: 10.979943}
-  m_Center: {x: -0.103710175, y: 8.884834, z: -0.01400661}
---- !u!65 &1950359828396628898
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873802336719950603}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.8765366, y: 39.112904, z: 7.9097557}
-  m_Center: {x: 6.9147725, y: 9.405531, z: -0.0010951209}
 --- !u!1 &2089507139627831088
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +416,7 @@ GameObject:
   - component: {fileID: 7116412817816424393}
   m_Layer: 0
   m_Name: pCube1
-  m_TagString: Untagged
+  m_TagString: Obelisk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

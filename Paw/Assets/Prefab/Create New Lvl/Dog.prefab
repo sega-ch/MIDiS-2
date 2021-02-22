@@ -4095,7 +4095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd86f452da2ecdf45afb5e7b173cde15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dog: {fileID: 0}
+  dog: {fileID: 7376400277603837353}
   bone: {fileID: 9201917264026120190, guid: 129f58d93aee5694e818dacd07d0f75f, type: 3}
   boneChill: {fileID: 5194106922540341729, guid: 0ca25dceea3e3b74886b210cfec88085,
     type: 3}

@@ -6,13 +6,13 @@ using UnityEngine.UIElements;
 public class ScoreAnimation : MonoBehaviour
 {
     private GameObject data;
-    Controller Controller;
+
     public GameObject dog;
     public GameObject bone;
-    public GameObject boneChill;
     public GameObject boneGold;
-    public GameObject boneChillGold;
-    TreasureEditor treasureEditor;
+
+    TreasureController treasureController;
+
     public Animator k_Animator;
     public Animator kg_Animator;
     public GameObject scorePrefab;
@@ -23,72 +23,51 @@ public class ScoreAnimation : MonoBehaviour
 
     public static event BoneGoldenSound ActivateGoldenBoneSound;
     public delegate IEnumerator BoneGoldenSound();
+
     void Start()
     {
         dog = GameObject.Find("Dog");
         data = GameObject.Find("Data");
-        Controller = GameObject.Find("Data").GetComponent<Controller>();
-        treasureEditor = data.GetComponent<TreasureEditor>();
+        treasureController = FindObjectOfType<TreasureController>();
     }
 
-    public void Update()
-    {
-        if (treasureEditor.bone == true)
-        {
-            NachaloAnimacii();
-            treasureEditor.bone = false;
-        }
-        if (treasureEditor.goldenBone == true)
-        {
-            NachaloAnimaciiGold();
-            treasureEditor.goldenBone = false;
-        }
-    }
-
-    public void NachaloAnimacii()
+    public void BoneAnimation()
     {
         StartCoroutine(ActivateBoneSound());
-        bone.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y, dog.transform.position.z + 12);
+        bone.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y + 15, dog.transform.position.z);
         bone.SetActive(true);
-        k_Animator.SetBool("Yes", true);//Тригер анимации
-        Invoke("NadoelaEtaAnimaciya", 1f);
-        Invoke("AnimaciapodnatiaKladaMertva", 1.7f);
+        //k_Animator.SetBool("Yes", true); // Тригер анимации
+        PoyavlenieChastic();
+        Invoke("BoneAnimationEnd", 1.5f);
     }
-    public void NachaloAnimaciiGold()
+
+    public void GoldenBoneAnimation()
     {
         StartCoroutine(ActivateGoldenBoneSound());
-        boneGold.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y, dog.transform.position.z + 12);
+        boneGold.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y + 15, dog.transform.position.z);
         boneGold.SetActive(true);
-        kg_Animator.SetBool("Yes", true);//Тригер анимации
-        Invoke("NadoelaEtaAnimaciyaGold", 1f);
-        Invoke("AnimaciapodnatiaKladaMertvaGold", 1.7f);
+        //kg_Animator.SetBool("Yes", true); // Тригер анимации
+        PoyavlenieChastic();
+        Invoke("GoldenBoneAnimationEnd", 1.5f);
     }
-    public void NadoelaEtaAnimaciya()//Показываем кость, а то криво работает анимация
+
+    public void BoneAnimationEnd()
     {
-        boneChill.GetComponent<MeshRenderer>().enabled = true;
-    }
-    public void AnimaciapodnatiaKladaMertva()//Вырубаем анимацию и все прячим
-    {
-        k_Animator.SetBool("Yes", false);
-        boneChill.GetComponent<MeshRenderer>().enabled = false;
+        //k_Animator.SetBool("Yes", false);
         bone.SetActive(false);
-        PoyavlenieChastic();
     }
-    public void NadoelaEtaAnimaciyaGold()//Показываем кость, а то криво работает анимация
+
+    public void GoldenBoneAnimationEnd() // Вырубаем анимацию и все прячим
     {
-        boneChillGold.GetComponent<MeshRenderer>().enabled = true;
-    }
-    public void AnimaciapodnatiaKladaMertvaGold()//Вырубаем анимацию и все прячим
-    {
-        kg_Animator.SetBool("Yes", false);
-        boneChillGold.GetComponent<MeshRenderer>().enabled = false;
+        //kg_Animator.SetBool("Yes", false);
         boneGold.SetActive(false);
-        PoyavlenieChastic();
     }
-    public void PoyavlenieChastic()//Появление префаба очков
+
+    public void PoyavlenieChastic() // Появление префаба очков
     {
-        scorePrefab.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y + 20.5f, dog.transform.position.z + 6);
-        Instantiate(scorePrefab);
+        scorePrefab.transform.position = new Vector3(dog.transform.position.x, dog.transform.position.y + 15, dog.transform.position.z);
+        GameObject particles = Instantiate(scorePrefab);
         scoreGo = true;
+        Destroy(particles, 1.5f);
     }
 }

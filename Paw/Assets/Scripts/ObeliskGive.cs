@@ -5,41 +5,48 @@ using UnityEngine;
 
 public class ObeliskGive : MonoBehaviour
 {
-    Controller Controller;
     private GameObject data;
-    TreasureEditor treasureEditor;
-    GameObject dog;//псина
+
+    GameObject dog;
+
     public GameObject strelka;
+
+    private TreasureController treasureController;
+
     void Start()
     {
-        Controller = GameObject.Find("Data").GetComponent<Controller>();
         dog = GameObject.Find("Dog");
         data = GameObject.Find("Data");
-        treasureEditor = data.GetComponent<TreasureEditor>();
+        treasureController = FindObjectOfType<TreasureController>();
     }
 
-    private void OnTriggerEnter(Collider other)//зона на которой происходт потбор предмета
+    private void OnTriggerEnter(Collider other)
     {
-        if (treasureEditor.amulet == true)
+        if (treasureController.isCarryingAmulet == true)
         {
-            if (other.gameObject.tag == "Obelisk")//проверяем этот ли объект по тегу
+            if (other.gameObject.tag == "Obelisk")
             {
-                dog.gameObject.GetComponent<Joystic_touch>().enabled = false;//отключаем передвежение для анимации
-                treasureEditor.amulet = false;
-                treasureEditor.score = treasureEditor.score + Convert.ToInt32((40 * treasureEditor.pointMultiplier));
+                dog.gameObject.GetComponent<Joystic_touch>().enabled = false;
+                treasureController.isCarryingAmulet = false;
+
+                treasureController.AddScore(40);
+
                 strelka.SetActive(false);
-                treasureEditor.pointMultiplier = 1.5f;
-                Invoke("EndOfEffect", 10);
+
+                treasureController.treasureMultiplier = 1.5f;
+
                 Invoke("TimeT", 0.5f);
             }
         }
     }
-    void TimeT()//мто что мы запускаем через время
+    void TimeT()
     {
         dog.gameObject.GetComponent<Joystic_touch>().enabled = true;
+        Invoke("EndOfEffect", 10);
     }
+
     void EndOfEffect()
     {
-        treasureEditor.pointMultiplier = 1;
+        treasureController.treasureMultiplier = 1;
     }
 }
